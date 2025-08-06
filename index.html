@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Prairie Top Exteriors Ltd</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -14,7 +14,7 @@
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
+    <a href="gallery.html">Gallery</a>
     <a href="#contact">Contact</a>
   </nav>
 
@@ -34,19 +34,6 @@
       </ul>
     </section>
 
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Images will load here dynamically -->
-      </div>
-    </section>
-
-    <!-- Lightbox Overlay -->
-    <div id="lightbox" class="lightbox hidden">
-      <span id="lightboxClose" class="lightbox-close">&times;</span>
-      <img id="lightboxImg" class="lightbox-img" src="" alt="Expanded image" />
-    </div>
-
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:prairietopexteriors@gmail.com">prairietopexteriors@gmail.com</a></p>
@@ -62,29 +49,69 @@
   <footer>
     <p>&copy; Prairie Top Exteriors Ltd. All rights reserved.</p>
   </footer>
+</body>
+</html>
+2. gallery.html (dedicated gallery page with lightbox)
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gallery - Prairie Top Exteriors Ltd</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <img src="Logo.png" alt="Prairie Top Exteriors Logo" class="logo-full" />
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#gallery">Gallery</a>
+  </nav>
+
+  <main>
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Images loaded dynamically -->
+      </div>
+    </section>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox hidden">
+      <span id="lightboxClose" class="lightbox-close">&times;</span>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Expanded image" />
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; Prairie Top Exteriors Ltd. All rights reserved.</p>
+  </footer>
 
   <script>
-    // Auto-load images from gallery folder
     const galleryGrid = document.getElementById('galleryGrid');
-    const imageCount = 8; 
+    const imageCount = 8;
     for (let i = 1; i <= imageCount; i++) {
       const img = document.createElement('img');
-      img.src = `gallery/image${i}.jpg`; 
+      img.src = `gallery/image${i}.jpg`;
       img.alt = `Project image${i}.jpg`;
       img.className = 'gallery-img';
       galleryGrid.appendChild(img);
 
-      // Add click-to-expand functionality
       img.addEventListener('click', () => {
         document.getElementById('lightboxImg').src = img.src;
         document.getElementById('lightbox').classList.remove('hidden');
       });
     }
 
-    // Lightbox close handlers
     document.getElementById('lightboxClose').addEventListener('click', () => {
       document.getElementById('lightbox').classList.add('hidden');
     });
+
     document.getElementById('lightbox').addEventListener('click', (e) => {
       if (e.target.id === 'lightbox') {
         document.getElementById('lightbox').classList.add('hidden');
