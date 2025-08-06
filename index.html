@@ -64,10 +64,10 @@
   <script>
     // Auto-load images from gallery folder
     const galleryGrid = document.getElementById('galleryGrid');
-    const imageCount = 10; // update with your actual number
+    const imageCount = 10; 
     for (let i = 1; i <= imageCount; i++) {
       const img = document.createElement('img');
-      img.src = `gallery/photo${i}.jpg`; // make sure they follow this naming
+      img.src = `gallery/photo${i}.jpg`; 
       img.alt = `Project Photo ${i}`;
       img.className = 'gallery-img';
       galleryGrid.appendChild(img);
