@@ -41,6 +41,12 @@
       </div>
     </section>
 
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox hidden">
+      <span id="lightboxClose" class="lightbox-close">&times;</span>
+      <img id="lightboxImg" class="lightbox-img" src="" alt="Expanded image" />
+    </div>
+
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:prairietopexteriors@gmail.com">prairietopexteriors@gmail.com</a></p>
@@ -67,7 +73,23 @@
       img.alt = `Project image${i}.jpg`;
       img.className = 'gallery-img';
       galleryGrid.appendChild(img);
+
+      // Add click-to-expand functionality
+      img.addEventListener('click', () => {
+        document.getElementById('lightboxImg').src = img.src;
+        document.getElementById('lightbox').classList.remove('hidden');
+      });
     }
+
+    // Lightbox close handlers
+    document.getElementById('lightboxClose').addEventListener('click', () => {
+      document.getElementById('lightbox').classList.add('hidden');
+    });
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') {
+        document.getElementById('lightbox').classList.add('hidden');
+      }
+    });
   </script>
 </body>
 </html>
