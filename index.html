@@ -7,22 +7,27 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
+  <header class="header">
     <img src="logo.png" alt="Prairie Top Exteriors Logo" class="logo" />
-    <h1>Prairie Top Exteriors Ltd</h1>
-    <p>Reliable Siding & Roofing in Saskatchewan</p>
+    <div class="title-block">
+      <h1>Prairie Top Exteriors Ltd</h1>
+      <p>Reliable Siding & Roofing in Saskatchewan</p>
+    </div>
   </header>
+
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
   </nav>
+
   <main>
     <section id="about">
       <h2>About Us</h2>
       <p>Prairie Top Exteriors specializes in vinyl, Hardie board, and metal siding, as well as roofing solutions across Saskatchewan. Built on quality and trust.</p>
     </section>
+
     <section id="services">
       <h2>Services</h2>
       <ul>
@@ -32,10 +37,14 @@
         <li>Soffit & Fascia Installation</li>
       </ul>
     </section>
+
     <section id="gallery">
       <h2>Gallery</h2>
-      <p>Project photos coming soon.</p>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Images will load here dynamically -->
+      </div>
     </section>
+
     <section id="contact">
       <h2>Contact</h2>
       <p>Email: <a href="mailto:prairietopexteriors@gmail.com">prairietopexteriors@gmail.com</a></p>
@@ -47,8 +56,22 @@
       </p>
     </section>
   </main>
+
   <footer>
     <p>&copy; Prairie Top Exteriors Ltd. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Auto-load images from gallery folder
+    const galleryGrid = document.getElementById('galleryGrid');
+    const imageCount = 10; // update with your actual number
+    for (let i = 1; i <= imageCount; i++) {
+      const img = document.createElement('img');
+      img.src = `gallery/photo${i}.jpg`; // make sure they follow this naming
+      img.alt = `Project Photo ${i}`;
+      img.className = 'gallery-img';
+      galleryGrid.appendChild(img);
+    }
+  </script>
 </body>
 </html>
