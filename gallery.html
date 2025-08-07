@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gallery - Prairie Top Exteriors Ltd</title>
+  <title>Gallery | Prairie Top Exteriors Ltd</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header class="header">
-    <img src="header logo.png" alt="Prairie Top Exteriors Logo" class="logo-full" />
+    <a href="index.html">
+      <img src="header logo.png" alt="Prairie Top Exteriors Logo" class="logo" />
+    </a>
   </header>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="#gallery">Gallery</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="gallery.html" class="active">Gallery</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
 
   <main>
     <section id="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Images load dynamically -->
-      </div>
+      <h2>Project Gallery</h2>
+      <div class="gallery-grid" id="galleryGrid"></div>
     </section>
-
-    <div id="lightbox" class="lightbox hidden">
-      <span id="lightboxClose" class="lightbox-close">&times;</span>
-      <img id="lightboxImg" class="lightbox-img" src="" alt="Expanded image" />
-    </div>
   </main>
 
   <footer>
@@ -37,29 +35,28 @@
   <script>
     const galleryGrid = document.getElementById('galleryGrid');
     const imageCount = 8;
-
-    for(let i = 1; i <= imageCount; i++) {
+    for (let i = 1; i <= imageCount; i++) {
       const img = document.createElement('img');
       img.src = `gallery/image${i}.jpg`;
-      img.alt = `Project image ${i}`;
+      img.alt = `Project Image ${i}`;
       img.className = 'gallery-img';
+      img.onclick = () => {
+        const overlay = document.createElement('div');
+        overlay.className = 'modal';
+        overlay.innerHTML = \`
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="\${img.src}" alt="\${img.alt}" />
+          </div>
+        \`;
+        document.body.appendChild(overlay);
+        overlay.querySelector('.close').onclick = () => overlay.remove();
+        overlay.onclick = (e) => {
+          if (e.target === overlay) overlay.remove();
+        };
+      };
       galleryGrid.appendChild(img);
-
-      img.addEventListener('click', () => {
-        document.getElementById('lightboxImg').src = img.src;
-        document.getElementById('lightbox').classList.remove('hidden');
-      });
     }
-
-    document.getElementById('lightboxClose').addEventListener('click', () => {
-      document.getElementById('lightbox').classList.add('hidden');
-    });
-
-    document.getElementById('lightbox').addEventListener('click', e => {
-      if(e.target.id === 'lightbox') {
-        document.getElementById('lightbox').classList.add('hidden');
-      }
-    });
   </script>
 </body>
 </html>
