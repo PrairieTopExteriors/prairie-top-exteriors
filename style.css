@@ -1,109 +1,97 @@
-/* Highlighted accent color */
-:root {
-  --brand-yellow: #f1c40f;
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #222;
 }
 
-/* Buttons */
-.btn-primary {
-  display: inline-block;
-  background-color: var(--brand-yellow);
+header {
+  background: #333;
+  text-align: center;
+  padding: 0;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+nav {
+  background: #444;
+  display: flex;
+  justify-content: center;
+  gap: 1.5em;
+  padding: 0.8em;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #f1c40f;
+}
+
+main {
+  padding: 2em;
+  background-color: white;
+  margin: 1em auto;
+  max-width: 900px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-size: 2.5em;
   color: #333;
+  margin-bottom: 0.2em;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #666;
+  margin-bottom: 1em;
+}
+
+.about-highlight {
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: #fdf3c1;
+  padding: 1em;
+  border-left: 6px solid #f1c40f;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+.estimate-button {
+  display: inline-block;
+  margin-top: 1.5em;
   padding: 0.75em 1.5em;
-  margin-top: 1em;
+  background-color: #f1c40f;
+  color: #000;
   font-weight: bold;
   text-decoration: none;
-  border-radius: 6px;
-  box-shadow: 0 3px 6px rgba(241,196,15,0.5);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
-.btn-primary:hover,
-.btn-primary:focus {
+.estimate-button:hover {
   background-color: #d4ac0d;
-  box-shadow: 0 5px 10px rgba(212,172,13,0.7);
-  color: #222;
 }
 
-/* Text highlights */
-.highlight {
-  color: var(--brand-yellow);
-  font-weight: 700;
-}
-
-/* Alternate background section */
-.alt-background {
-  background-color: #fff9e6;
-  padding: 2em 1em;
-  margin-bottom: 2em;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(241,196,15,0.2);
-}
-
-/* Adjust About Us section for hierarchy */
-.highlighted-section {
-  background: white;
-  padding: 2em 1em;
-  margin-bottom: 2em;
-  border-left: 8px solid var(--brand-yellow);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.highlighted-section h2 {
-  font-size: 2.25em;
-  margin-bottom: 0.5em;
-  color: #222;
-}
-
-.highlighted-section p {
-  font-size: 1.2em;
-  line-height: 1.6;
-}
-
-/* Services section styling */
-#services h2 {
-  font-size: 2em;
-  margin-bottom: 0.75em;
-  color: #222;
-}
-
-#services ul {
-  list-style-type: disc;
-  padding-left: 1.5em;
-  font-size: 1.1em;
-  color: #444;
-}
-
-#services li {
-  margin-bottom: 0.7em;
-}
-
-/* Footer tweaks */
 footer {
   background: #333;
   color: white;
   text-align: center;
   padding: 1em;
-  font-size: 0.9em;
-}
-
-/* Responsive tweaks */
-@media (max-width: 600px) {
-  .highlighted-section h2,
-  #services h2 {
-    font-size: 1.75em;
-  }
-  
-  .highlighted-section p,
-  #services ul {
-    font-size: 1em;
-  }
-
-  nav {
-    flex-wrap: wrap;
-    gap: 1em;
-  }
-
-  nav a {
-    padding: 0.5em 0.75em;
-  }
+  margin-top: 2em;
 }
