@@ -25,11 +25,8 @@ header {
 
 /* Navigation styles */
 nav {
-  background: #444;
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  padding: 0.5em;
+ background: url('images/metal-texture.jpg') no-repeat center center;
+  background-size: cover;
 }
 
 nav a {
