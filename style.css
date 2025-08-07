@@ -1,110 +1,145 @@
+/* === General Styles === */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   background-color: #f4f4f4;
   color: #222;
 }
 
-header {
-  background: #222;
-  padding: 1em 0;
-  text-align: center;
+/* === Header with Logo and Name === */
+.header {
+  background: #333;
+  color: #f1c40f;
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1em;
 }
 
 .logo {
   max-height: 80px;
   width: auto;
+  height: auto;
 }
 
+.header h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+
+/* === Navigation Menu === */
 nav {
-  background: #333;
+  background: #444;
   display: flex;
   justify-content: center;
   gap: 2em;
-  padding: 0.8em 1em;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 0.75em;
   font-weight: bold;
 }
 
 nav a {
-  color: #f1c40f;
+  color: white;
   text-decoration: none;
-  padding: 0.5em;
-  transition: background 0.3s, color 0.3s;
+  padding: 0.5em 1em;
+  transition: background 0.3s ease;
 }
 
 nav a:hover {
   background: #f1c40f;
-  color: #222;
-  border-radius: 5px;
+  color: #333;
+  border-radius: 4px;
 }
 
+/* === Main Section === */
 main {
-  padding: 2em 1em;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 2em;
+}
+
+/* === About Us Section === */
+#about {
+  background: white;
+  padding: 2em;
+  margin-bottom: 2em;
+  border-left: 8px solid #f1c40f;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+#about h2 {
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 0.5em;
+}
+
+#about p {
+  font-size: 1.1em;
   line-height: 1.6;
 }
 
-h1, h2 {
-  color: #2c3e50;
-}
-
-section {
-  margin-bottom: 3em;
-}
-
-.about-highlight {
-  background: #fffbea;
-  border-left: 5px solid #f1c40f;
-  padding: 1.5em;
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
-  font-size: 1.1em;
-}
-
+/* === Gallery Section === */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
 }
 
 .gallery-img {
   width: 100%;
   height: auto;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
   cursor: pointer;
-  transition: transform 0.2s;
 }
 
 .gallery-img:hover {
   transform: scale(1.03);
 }
 
-.fullscreen {
+/* === Modal for Enlarged Image === */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.9);
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 9999;
 }
 
-.fullscreen img {
-  max-width: 90vw;
-  max-height: 90vh;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+.modal-content {
+  position: relative;
+  background: #fff;
+  padding: 1em;
+  border-radius: 8px;
+  max-width: 90%;
+  max-height: 90%;
 }
 
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* === Footer === */
 footer {
-  background: #222;
+  background: #333;
   color: white;
   text-align: center;
   padding: 1em;
-  font-size: 0.9em;
 }
