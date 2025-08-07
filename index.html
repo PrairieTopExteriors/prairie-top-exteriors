@@ -14,16 +14,19 @@
   <nav>
     <a href="#about">About</a>
     <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
+    <a href="gallery.html">Gallery</a>
     <a href="#contact">Contact</a>
   </nav>
 
   <main>
-    <section id="about" class="highlight-section">
+    <section id="about">
       <h2>About Us</h2>
-      <p><strong>Prairie Top Exteriors</strong> was built on a simple idea — that speed and quality shouldn't be a trade-off. Born and based in Saskatchewan, we combine local values with professional-grade craftsmanship. Our team of seasoned installers brings years of experience to every project, ensuring your siding and roofing are done right — and done fast.</p>
-      <p>We started this company because we saw a need: homeowners and builders deserve reliable crews who show up, work hard, and deliver top-tier results without delays. That’s what we do — with pride, precision, and integrity.</p>
-      <p><em>Your home deserves nothing less than Prairie-built strength, topped with professional care.</em></p>
+      <p class="highlight-text">
+        Prairie Top Exteriors was founded with a simple goal: to prove that quality and speed can go hand in hand. 
+        Built by trusted local installers with years of hands-on experience, we pride ourselves on delivering 
+        high-end exterior finishes that don’t cut corners. Whether it’s siding or roofing, you can count on 
+        Prairie craftsmanship, done right — the first time.
+      </p>
     </section>
 
     <section id="services">
@@ -34,13 +37,6 @@
         <li>Standing Seam Metal Roofing</li>
         <li>Soffit & Fascia Installation</li>
       </ul>
-    </section>
-
-    <section id="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- Images will load here dynamically -->
-      </div>
     </section>
 
     <section id="contact">
@@ -58,36 +54,5 @@
   <footer>
     <p>&copy; Prairie Top Exteriors Ltd. All rights reserved.</p>
   </footer>
-
-  <script>
-    // Auto-load images from gallery folder
-    const galleryGrid = document.getElementById('galleryGrid');
-    const imageCount = 8; 
-    for (let i = 1; i <= imageCount; i++) {
-      const img = document.createElement('img');
-      img.src = `gallery/image${i}.jpg`; 
-      img.alt = `Project image ${i}`;
-      img.className = 'gallery-img';
-      img.onclick = () => openModal(img.src);
-      galleryGrid.appendChild(img);
-    }
-
-    // Modal popup
-    const modal = document.createElement('div');
-    modal.className = 'modal';
-    modal.innerHTML = '<span class="close">&times;</span><img class="modal-content" id="modalImg">';
-    document.body.appendChild(modal);
-
-    const modalImg = document.getElementById('modalImg');
-    const closeBtn = modal.querySelector('.close');
-
-    function openModal(src) {
-      modal.style.display = 'block';
-      modalImg.src = src;
-    }
-
-    closeBtn.onclick = () => modal.style.display = 'none';
-    modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; }
-  </script>
 </body>
 </html>
