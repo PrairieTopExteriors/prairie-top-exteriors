@@ -5,6 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery | Prairie Top Exteriors Ltd</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Additional styles just for gallery page */
+    
+    /* Fix nav inside header alignment */
+    header.header {
+      background: #333;
+      height: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1em;
+      flex-direction: column;
+    }
+
+    nav {
+      margin-top: 10px; /* space below header logo */
+      background: #444;
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 0.75em;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5em 1em;
+      transition: background 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background: #f1c40f;
+      color: #333;
+      border-radius: 4px;
+    }
+
+    /* Gallery grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1em;
+      margin: 2em auto;
+      max-width: 1100px;
+      padding: 0 1em;
+    }
+
+    .gallery-img {
+      width: 100%;
+      height: auto;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      object-fit: cover;
+      max-height: 120px; /* limit height to keep images small */
+    }
+
+    .gallery-img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal styles */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .modal-content {
+      position: relative;
+      background: white;
+      padding: 1em;
+      border-radius: 8px;
+      max-width: 90vw;
+      max-height: 90vh;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
+
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .modal .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 2rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -23,7 +125,7 @@
 
   <main>
     <section id="gallery">
-      <h2>Project Gallery</h2>
+      <h2 style="text-align:center; margin-top:1em;">Project Gallery</h2>
       <div class="gallery-grid" id="galleryGrid"></div>
     </section>
   </main>
@@ -43,12 +145,12 @@
       img.onclick = () => {
         const overlay = document.createElement('div');
         overlay.className = 'modal';
-        overlay.innerHTML = \`
+        overlay.innerHTML = `
           <div class="modal-content">
             <span class="close">&times;</span>
-            <img src="\${img.src}" alt="\${img.alt}" />
+            <img src="${img.src}" alt="${img.alt}" />
           </div>
-        \`;
+        `;
         document.body.appendChild(overlay);
         overlay.querySelector('.close').onclick = () => overlay.remove();
         overlay.onclick = (e) => {
