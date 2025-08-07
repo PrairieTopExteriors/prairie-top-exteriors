@@ -1,4 +1,4 @@
-/* Body and general styles */
+/* General body styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,10 +6,10 @@ body {
   color: #222;
 }
 
-/* Header with big logo image */
+/* Header styles for both pages */
 header.header {
   background: #333;
-  height: 180px;            /* Set header height */
+  height: 140px;            /* Smaller header height than before */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,11 +17,11 @@ header.header {
 }
 
 .logo {
-  max-height: 160px;       /* Logo fits nicely inside header */
+  max-height: 120px;       /* Fits nicely, not too big */
   width: auto;
 }
 
-/* Navigation styles */
+/* Navigation bar */
 nav {
   background: #444;
   display: flex;
@@ -38,7 +38,8 @@ nav a {
   transition: background 0.3s ease;
 }
 
-nav a:hover {
+nav a:hover,
+nav a.active {
   background: #f1c40f;
   color: #333;
   border-radius: 4px;
@@ -52,7 +53,7 @@ main {
   line-height: 1.6;
 }
 
-/* Highlighted About Us section */
+/* About Us highlight */
 .highlighted-section {
   background: white;
   padding: 2em;
@@ -69,6 +70,66 @@ main {
 
 .highlighted-section p {
   font-size: 1.1em;
+}
+
+/* Gallery grid and images */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.gallery-img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.05);
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  padding: 1em;
+  border-radius: 8px;
+  max-width: 90vw;
+  max-height: 90vh;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.modal .close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 /* Footer */
