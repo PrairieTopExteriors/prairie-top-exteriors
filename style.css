@@ -1,4 +1,4 @@
-/* === General Styles === */
+/* Body and general styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,30 +6,22 @@ body {
   color: #222;
 }
 
-/* === Header with Logo and Name === */
-.header {
+/* Header with big logo image */
+header.header {
   background: #333;
-  color: #f1c40f;
-  padding: 1em;
+  height: 180px;            /* Set header height */
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 1em;
+  align-items: center;
+  padding: 0 1em;
 }
 
 .logo {
-  max-height: 80px;
+  max-height: 160px;       /* Logo fits nicely inside header */
   width: auto;
-  height: auto;
 }
 
-.header h1 {
-  margin: 0;
-  font-size: 1.8em;
-}
-
-/* === Navigation Menu === */
+/* Navigation styles */
 nav {
   background: #444;
   display: flex;
@@ -52,13 +44,16 @@ nav a:hover {
   border-radius: 4px;
 }
 
-/* === Main Section === */
+/* Main content */
 main {
-  padding: 2em;
+  padding: 2em 1em;
+  max-width: 1100px;
+  margin: 0 auto;
+  line-height: 1.6;
 }
 
-/* === About Us Section === */
-#about {
+/* Highlighted About Us section */
+.highlighted-section {
   background: white;
   padding: 2em;
   margin-bottom: 2em;
@@ -66,80 +61,21 @@ main {
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-#about h2 {
+.highlighted-section h2 {
   color: #333;
   font-size: 2em;
   margin-bottom: 0.5em;
 }
 
-#about p {
+.highlighted-section p {
   font-size: 1.1em;
-  line-height: 1.6;
 }
 
-/* === Gallery Section === */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 1em;
-  margin-top: 1em;
-}
-
-.gallery-img {
-  width: 100%;
-  height: auto;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.gallery-img:hover {
-  transform: scale(1.03);
-}
-
-/* === Modal for Enlarged Image === */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.modal-content {
-  position: relative;
-  background: #fff;
-  padding: 1em;
-  border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.modal-content img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.modal .close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 2rem;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* === Footer === */
+/* Footer */
 footer {
   background: #333;
   color: white;
   text-align: center;
   padding: 1em;
+  font-size: 0.9em;
 }
