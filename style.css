@@ -4,46 +4,54 @@ body {
   background-color: #f4f4f4;
   color: #222;
 }
+
+/* Header styles */
 header {
   width: 100%;
   height: 240px;
-  background-color: #333; /* or your chosen color/image */
+  background-color: #333;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0;
   box-sizing: border-box;
   overflow: hidden;
-
 }
 
 .logo {
-  max-height: 100%;
-  max-width: 100%;
-  object-fit: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills header without distortion */
   display: block;
 }
 
 /* Navigation styles */
 nav {
- background: url('images/metal-texture.jpg') no-repeat center center;
+  background: url('images/metal-texture.jpg') no-repeat center center;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  padding: 0.5em 0;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  background-color: #f1c40f; /* bright yellow background */
-  padding: 0.5em 1em;
+  background-color: #f1c40f;
+  padding: 0.6em 1.2em;
   border-radius: 8px;
   font-weight: bold;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 1.05em;
+  transition: transform 0.2s ease, background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 nav a:hover,
 nav a:focus {
   background-color: #fff;
   color: #444;
+  transform: scale(1.08);
   outline: none;
 }
 
@@ -83,21 +91,22 @@ h2 {
 
 /* Get a Free Estimate button */
 a.estimate-button {
-  background-color: #f1c40f;
+  background: linear-gradient(135deg, #f1c40f, #d4ac0d);
   color: #000;
   font-weight: bold;
-  padding: 0.75em 1.5em;
-  border-radius: 5px;
+  padding: 0.85em 1.8em;
+  border-radius: 8px;
   text-decoration: none;
   display: inline-block;
   margin-top: 1.5em;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.3);
 }
 
 a.estimate-button:hover,
 a.estimate-button:focus {
-  background-color: #d4ac0d;
-  color: #000;
+  background: linear-gradient(135deg, #fff176, #f1c40f);
+  transform: scale(1.07);
   outline: none;
   text-decoration: none;
 }
