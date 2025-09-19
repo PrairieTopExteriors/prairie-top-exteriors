@@ -1,164 +1,113 @@
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  background: #f9f9f9;
-  color: #333;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: #222;
 }
 
-/* HEADER */
+/* Header styles */
 header {
   background: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1em;
+  height: auto;
 }
 
 .logo {
-  max-height: 100px;
+  max-height: 180px;
+  height: auto;
+  width: auto;
+  display: block;
 }
 
-/* NAVIGATION */
+/* Navigation styles */
 nav {
-  background: url('metal-texture.jpg') no-repeat center center;
-  background-size: cover;
+  background: url('metal-texture.jpg') repeat;
+  background-size: auto;
   display: flex;
   justify-content: center;
-  gap: 2em;
-  padding: 1em;
-  font-weight: bold;
+  gap: 1em;
+  padding: 0.75em 0;
 }
 
 nav a {
   color: white;
   text-decoration: none;
-  padding: 0.5em 1em;
-  transition: all 0.3s ease;
-  border-radius: 4px;
+  background-color: #f1c40f;
+  padding: 0.6em 1.2em;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.05em;
+  transition: transform 0.2s ease, background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 nav a:hover,
 nav a.active {
-  background: #f1c40f;
-  color: #333;
+  background-color: #fff;
+  color: #444;
+  transform: scale(1.08);
 }
 
-/* MAIN SECTIONS */
+/* Main content area */
 main {
-  max-width: 1100px;
-  margin: 2em auto;
-  padding: 0 1em;
+  padding: 2em;
+  background-color: white;
+  margin: 1em auto;
+  max-width: 900px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
-  color: #222;
-  margin-bottom: 0.5em;
+/* Headings */
+h1 {
+  font-size: 2.5em;
+  color: #333;
+  margin-bottom: 0.2em;
 }
 
-.about-highlight {
-  font-size: 1.2em;
-  font-weight: bold;
+h2 {
+  font-size: 1.5em;
+  color: #666;
   margin-bottom: 1em;
 }
 
-.estimate-button {
-  display: inline-block;
-  margin-top: 1em;
-  padding: 0.75em 1.5em;
-  background: #f1c40f;
-  color: #333;
+/* Highlighted about text */
+.about-highlight {
+  font-size: 1.2em;
   font-weight: bold;
-  border-radius: 5px;
+  background-color: #fdf3c1;
+  padding: 1em;
+  border-left: 6px solid #f1c40f;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+/* Get a Free Estimate button */
+a.estimate-button {
+  background: linear-gradient(135deg, #f1c40f, #d4ac0d);
+  color: #000;
+  font-weight: bold;
+  padding: 0.85em 1.8em;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  display: inline-block;
+  margin-top: 1.5em;
+  transition: transform 0.2s ease, background 0.3s ease;
+  box-shadow: 0 3px 7px rgba(0,0,0,0.3);
 }
 
-.estimate-button:hover {
-  background: #d4ac0d;
+a.estimate-button:hover,
+a.estimate-button:focus {
+  background: linear-gradient(135deg, #fff176, #f1c40f);
+  transform: scale(1.07);
+  outline: none;
+  text-decoration: none;
 }
 
-/* GALLERY GRID */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1em;
-}
-
-.gallery-img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.gallery-img:hover {
-  transform: scale(1.05);
-}
-
-/* MODAL */
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.modal-content {
-  position: relative;
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.modal-content img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-
-.modal .close {
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 2rem;
-  font-weight: bold;
-  color: white;
-  cursor: pointer;
-}
-
-.modal .arrow {
-  position: absolute;
-  top: 50%;
-  font-size: 3rem;
-  color: white;
-  cursor: pointer;
-  user-select: none;
-  transform: translateY(-50%);
-}
-
-.modal .arrow.left {
-  left: 20px;
-}
-
-.modal .arrow.right {
-  right: 20px;
-}
-
-/* FOOTER */
+/* Footer */
 footer {
   background: #333;
   color: white;
@@ -167,14 +116,14 @@ footer {
   margin-top: 2em;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
+/* Responsive Nav */
+@media (max-width: 600px) {
   nav {
-    flex-direction: column;
-    gap: 1em;
+    flex-wrap: wrap;
+    gap: 0.75em;
   }
-
-  .gallery-img {
-    height: 200px;
+  nav a {
+    padding: 0.5em 0.75em;
+    font-size: 1em;
   }
 }
