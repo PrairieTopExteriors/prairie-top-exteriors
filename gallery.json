@@ -1,19 +1,28 @@
 [
   {
-    "job": "Hardie Board Siding - Pilot Butte",
-    "description": "Installed durable Hardie board siding with matching trim.",
+    "job": "New Soffit and Facia - Regina",
+    "description": "installed soffit and facia for another regina reno",
     "images": [
-      "gallery/job1/img1.jpg",
-      "gallery/job1/img2.jpg",
-      "gallery/job1/img3.jpg"
+      "gallery/image1.jpg",
+      "gallery/image2.jpg",
+      "gallery/image3.jpg"
     ]
   },
   {
-    "job": "Standing Seam Metal Roof - Regina",
-    "description": "20” standing seam roof installed with precision.",
+    "job": "Metal Roof - Echo Lake",
+    "description": "Complete standing seam metal roof installation.",
     "images": [
-      "gallery/job2/img1.jpg",
-      "gallery/job2/img2.jpg"
+      "gallery/image4.jpg",
+      "gallery/image5.jpg"
+    ]
+  },
+  {
+    "job": "Vinyl Siding - Regina",
+    "description": "vinyl to align to refresh curb appeal.",
+    "images": [
+      "gallery/image6.jpg",
+      "gallery/image7.jpg",
+      "gallery/image8.jpg"
     ]
   }
 ]
