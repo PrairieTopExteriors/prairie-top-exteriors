@@ -1,0 +1,19 @@
+[
+  {
+    "job": "Hardie Board Siding - Pilot Butte",
+    "description": "Installed durable Hardie board siding with matching trim.",
+    "images": [
+      "gallery/job1/img1.jpg",
+      "gallery/job1/img2.jpg",
+      "gallery/job1/img3.jpg"
+    ]
+  },
+  {
+    "job": "Standing Seam Metal Roof - Regina",
+    "description": "20” standing seam roof installed with precision.",
+    "images": [
+      "gallery/job2/img1.jpg",
+      "gallery/job2/img2.jpg"
+    ]
+  }
+]
