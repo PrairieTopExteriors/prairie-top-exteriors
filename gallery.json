@@ -1,28 +1,17 @@
 [
   {
-    "job": "New Soffit and Facia - Regina",
-    "description": "installed soffit and facia for another regina reno",
-    "images": [
-      "gallery/image1.jpg",
-      "gallery/image2.jpg",
-      "gallery/image3.jpg"
-    ]
+    "title": "Soffit and Facia Reno - Regina",
+    "description": "New soffit and facia for another regina reno.",
+    "images": ["gallery/image1.jpg", "gallery/image2.jpg", "gallery/image3.jpg"]
   },
   {
-    "job": "Metal Roof - Echo Lake",
-    "description": "Complete standing seam metal roof installation.",
-    "images": [
-      "gallery/image4.jpg",
-      "gallery/image5.jpg"
-    ]
+    "title": "Metal Roof - Echo Lake",
+    "description": "Standing seam metal roof at the beautiful Echo lake.",
+    "images": ["gallery/image4.jpg", "gallery/image5.jpg"]
   },
   {
-    "job": "Vinyl Siding - Regina",
-    "description": "vinyl to align to refresh curb appeal.",
-    "images": [
-      "gallery/image6.jpg",
-      "gallery/image7.jpg",
-      "gallery/image8.jpg"
-    ]
+    "title": "Align Reno - Regina",
+    "description": "From viynl to Align improving curb appeal.",
+    "images": ["gallery/image6.jpg", "gallery/image7.jpg", "gallery/image8.jpg"]
   }
 ]
