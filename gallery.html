@@ -5,107 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Gallery | Prairie Top Exteriors Ltd</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Page-specific gallery styling */
-    .job-section {
-      margin: 2em auto;
-      max-width: 1100px;
-      padding: 1em;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
-    }
-
-    .job-section h3 {
-      margin-top: 0;
-      color: #333;
-    }
-
-    .job-section p {
-      color: #555;
-      margin-bottom: 1em;
-    }
-
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1em;
-    }
-
-    .gallery-img {
-      width: 100%;
-      height: auto;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      object-fit: cover;
-      max-height: 150px;
-    }
-
-    .gallery-img:hover {
-      transform: scale(1.05);
-    }
-
-    /* Modal */
-    .modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.85);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .modal-content {
-      position: relative;
-      background: white;
-      padding: 1em;
-      border-radius: 8px;
-      max-width: 90vw;
-      max-height: 90vh;
-      box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-
-    .modal-content img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    .modal .close {
-      position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 2rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-  </style>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="header">
     <a href="index.html">
-      <img src="header logo.png" alt="Prairie Top Exteriors Logo" class="logo" />
+      <img src="header-logo.png" alt="Prairie Top Exteriors Logo" class="logo" />
     </a>
   </header>
 
-  <nav>
+  <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="index.html#about">About</a>
-    <a href="services.html">Services</a>
+    <a href="index.html#services">Services</a>
     <a href="gallery.html" class="active">Gallery</a>
-    <a href="contact.html">Contact</a>
+    <a href="quote.html">Get a Quote</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#contact">Contact</a>
   </nav>
 
   <main>
     <section id="gallery">
-      <h2 style="text-align:center; margin-top:1em;">Project Gallery</h2>
-      <div id="galleryContainer"></div>
+      <h2>Project Gallery</h2>
+      <div class="gallery-grid" id="galleryGrid"></div>
     </section>
   </main>
 
@@ -114,62 +36,30 @@
   </footer>
 
   <script>
-    async function loadGallery() {
-      try {
-        const response = await fetch("gallery.json");
-        const jobs = await response.json();
-        const container = document.getElementById("galleryContainer");
-
-        jobs.forEach(job => {
-          const section = document.createElement("div");
-          section.className = "job-section";
-
-          section.innerHTML = `
-            <h3>${job.job}</h3>
-            <p>${job.description}</p>
-            <div class="gallery-grid"></div>
-          `;
-
-          const grid = section.querySelector(".gallery-grid");
-
-          job.images.forEach(src => {
-            const img = document.createElement("img");
-            img.src = src;
-            img.alt = job.job;
-            img.className = "gallery-img";
-
-            img.onerror = () => {
-              console.error("Failed to load:", img.src);
-              img.style.display = "none";
-            };
-
-            img.onclick = () => {
-              const overlay = document.createElement("div");
-              overlay.className = "modal";
-              overlay.innerHTML = `
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <img src="${img.src}" alt="${img.alt}" />
-                </div>
-              `;
-              document.body.appendChild(overlay);
-              overlay.querySelector(".close").onclick = () => overlay.remove();
-              overlay.onclick = (e) => {
-                if (e.target === overlay) overlay.remove();
-              };
-            };
-
-            grid.appendChild(img);
-          });
-
-          container.appendChild(section);
-        });
-      } catch (err) {
-        console.error("Error loading gallery.json:", err);
-      }
+    const galleryGrid = document.getElementById('galleryGrid');
+    const imageCount = 8;
+    for (let i = 1; i <= imageCount; i++) {
+      const img = document.createElement('img');
+      img.src = `gallery/image${i}.jpg`;
+      img.alt = `Project Image ${i}`;
+      img.className = 'gallery-img';
+      img.onclick = () => {
+        const overlay = document.createElement('div');
+        overlay.className = 'modal';
+        overlay.innerHTML = `
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="${img.src}" alt="${img.alt}" />
+          </div>
+        `;
+        document.body.appendChild(overlay);
+        overlay.querySelector('.close').onclick = () => overlay.remove();
+        overlay.onclick = (e) => {
+          if (e.target === overlay) overlay.remove();
+        };
+      };
+      galleryGrid.appendChild(img);
     }
-
-    loadGallery();
   </script>
 </body>
 </html>
