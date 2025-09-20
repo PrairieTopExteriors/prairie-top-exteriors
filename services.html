@@ -1,87 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Services | Prairie Top Exteriors Ltd</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Page-specific styles */
-
-    /* Ensure consistent header height and logo scaling */
-    header.header {
-      background: #333;
-      height: 180px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 0;
-      overflow: hidden;
-    }
-
-    header.header img.logo {
-      max-height: 100%;
-      width: auto;
-      object-fit: contain;
-    }
-
-    /* Services Section */
-    .services-container {
-      max-width: 1100px;
-      margin: 2em auto;
-      padding: 0 1em;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2em;
-    }
-
-    .service-card {
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.2s ease;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .service-card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-    }
-
-    .service-card-content {
-      padding: 1em;
-    }
-
-    .service-card h3 {
-      margin-top: 0;
-      color: #333;
-    }
-
-    .service-card p {
-      color: #555;
-      font-size: 0.95em;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Prairie Top Exteriors</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- HEADER -->
-  <header class="header">
-    <a href="index.html">
-      <img src="header logo.png" alt="Prairie Top Exteriors Logo" class="logo" />
-    </a>
+  <header>
+    <img src="images/header logo.png" alt="Prairie Top Exteriors Logo" class="logo">
   </header>
 
   <!-- NAVIGATION -->
   <nav>
     <a href="index.html">Home</a>
-    <a href="index.html#about">About</a>
     <a href="services.html" class="active">Services</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
@@ -89,61 +22,40 @@
 
   <!-- MAIN CONTENT -->
   <main>
-    <h2 style="text-align:center; margin-top:1.5em;">Our Services</h2>
-    <p style="text-align:center; max-width:800px; margin:0 auto 2em;">
-      At Prairie Top Exteriors, we deliver expert siding and roofing solutions tailored to withstand Saskatchewan’s climate.  
-      Explore our services below:
-    </p>
+    <h1>Our Services</h1>
+    <p>We specialize in providing top-quality exterior solutions for residential and commercial projects. Below are some of our core services:</p>
 
-    <div class="services-container">
-      <!-- Hardie Board -->
+    <div class="services-grid">
+      <!-- Service 1 -->
       <div class="service-card">
-        <img src="images/services/hardie.jpg" alt="Hardie Board Siding" />
-        <div class="service-card-content">
-          <h3>Hardie Board Siding</h3>
-          <p>
-            Durable and stylish fiber cement siding that provides superior protection and timeless curb appeal.  
-            Designed to last decades with low maintenance.
-          </p>
-        </div>
+        <img src="images/service1.jpg" alt="Siding Installation">
+        <h2>Siding Installation</h2>
+        <p>Professional installation of Hardie Board, vinyl, and metal siding with precision and durability in mind.</p>
       </div>
 
-      <!-- Vinyl & Metal -->
+      <!-- Service 2 -->
       <div class="service-card">
-        <img src="images/services/vinyl-metal.jpg" alt="Vinyl and Metal Siding" />
-        <div class="service-card-content">
-          <h3>Vinyl & Metal Siding</h3>
-          <p>
-            Cost-effective and versatile siding options available in a variety of colors and profiles, delivering  
-            weather resistance and modern looks.
-          </p>
-        </div>
+        <img src="images/service2.jpg" alt="Roofing Services">
+        <h2>Roofing Services</h2>
+        <p>From sheeting to metal roof systems, we provide roofing solutions built to last in all weather conditions.</p>
       </div>
 
-      <!-- Standing Seam Metal Roofing -->
+      <!-- Service 3 -->
       <div class="service-card">
-        <img src="images/services/metal-roof.jpg" alt="Standing Seam Metal Roofing" />
-        <div class="service-card-content">
-          <h3>Standing Seam Metal Roofing</h3>
-          <p>
-            Premium roofing solution engineered for longevity and performance.  
-            Clean lines and hidden fasteners make for a sleek, modern roof that can last 50+ years.
-          </p>
-        </div>
+        <img src="images/service3.jpg" alt="Soffit & Fascia">
+        <h2>Soffit & Fascia</h2>
+        <p>High-quality soffit and fascia installation to protect your home while enhancing curb appeal.</p>
       </div>
 
-      <!-- Soffit & Fascia -->
+      <!-- Service 4 -->
       <div class="service-card">
-        <img src="images/services/soffit-fascia.jpg" alt="Soffit and Fascia" />
-        <div class="service-card-content">
-          <h3>Soffit & Fascia Installation</h3>
-          <p>
-            Essential finishing touches that protect your roofline and enhance ventilation while boosting curb appeal.  
-            Available in multiple colors and finishes.
-          </p>
-        </div>
+        <img src="images/service4.jpg" alt="Custom Exterior Work">
+        <h2>Custom Exterior Work</h2>
+        <p>Custom cladding, trims, and specialty exterior features to match your project’s unique design.</p>
       </div>
     </div>
+
+    <a href="contact.html" class="estimate-button">Request an Estimate</a>
   </main>
 
   <!-- FOOTER -->
