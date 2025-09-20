@@ -1,54 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Gallery | Prairie Top Exteriors Ltd</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .gallery-project {
-      margin: 2em auto;
-      max-width: 1100px;
-      padding: 0 1em;
-    }
-    .gallery-project h3 {
-      margin-bottom: 0.5em;
-      color: #f1c40f;
-    }
-    .gallery-project p {
-      margin-bottom: 1em;
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1em;
-    }
-    .gallery-img {
-      width: 100%;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      object-fit: cover;
-      max-height: 140px;
-    }
-    .gallery-img:hover {
-      transform: scale(1.05);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="header">
-    <a href="index.html">
-      <img src="header-logo.png" alt="Prairie Top Exteriors Logo" class="logo">
-    </a>
+    <a href="index.html"><img src="header-logo.png" class="logo" alt="Prairie Top Exteriors Logo" /></a>
   </header>
 
-  <nav>
+  <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="gallery.html" class="active">Gallery</a>
+    <a href="quote.html">Get a Quote</a>
     <a href="contact.html">Contact</a>
   </nav>
 
@@ -57,30 +26,10 @@
     <div id="galleryContainer"></div>
   </main>
 
-  <footer>
-    <p>&copy; Prairie Top Exteriors Ltd. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2025 Prairie Top Exteriors Ltd.</p>
+    </div>
   </footer>
-
-  <script>
-    async function loadGallery() {
-      const response = await fetch('gallery.json');
-      const projects = await response.json();
-      const container = document.getElementById('galleryContainer');
-
-      projects.forEach(project => {
-        const section = document.createElement('div');
-        section.className = 'gallery-project';
-        section.innerHTML = `
-          <h3>${project.title}</h3>
-          <p>${project.description}</p>
-          <div class="gallery-grid">
-            ${project.images.map(img => `<img src="${img}" alt="${project.title}" class="gallery-img">`).join('')}
-          </div>
-        `;
-        container.appendChild(section);
-      });
-    }
-    loadGallery();
-  </script>
 </body>
 </html>
