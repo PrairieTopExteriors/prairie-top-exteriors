@@ -1,227 +1,139 @@
-/* Global Styles */
-body {
-  font-family: Arial, sans-serif;
+/* Reset & base styles */
+* {
   margin: 0;
-  background-color: #f4f4f4;
-  color: #222;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #f8f9fa;
+  color: #333;
   line-height: 1.6;
 }
 
-h1, h2, h3 {
-  font-weight: bold;
-  margin-bottom: 0.5em;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Header */
+/* Header with logo */
 .header {
-  width: 100%;
-  height: 200px;
-  background-color: #222;
+  background: #111;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
 }
 
 .logo {
-  max-height: 180px;
+  max-height: 200px;
   width: auto;
   object-fit: contain;
 }
 
 /* Navigation */
-.main-nav {
-  background: url("images/metal-texture.jpg") no-repeat center center;
+nav {
+  background: url("metal-texture.jpg");
   background-size: cover;
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 1em;
-  padding: 0.75em;
+  gap: 2em;
+  padding: 1em;
+  position: relative;
+  z-index: 10;
 }
 
-.main-nav a {
+nav a {
   color: white;
+  text-decoration: none;
   font-weight: bold;
   padding: 0.6em 1.2em;
   border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.5);
-  transition: transform 0.2s, background 0.3s;
+  background: rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
 }
 
-.main-nav a:hover,
-.main-nav a.active {
-  background-color: #f1c40f;
-  color: #222;
-  transform: scale(1.05);
+nav a:hover,
+nav a.active {
+  background: #f1c40f;
+  color: #111;
+  transform: translateY(-2px);
 }
 
-/* Hero Section */
-.hero {
-  background: url("placeholders/hero.jpg") no-repeat center center/cover;
+/* Hero section (home page) */
+#hero {
+  text-align: center;
+  padding: 4em 1em;
+  background: linear-gradient(to right, #333, #666);
   color: white;
-  text-align: center;
-  padding: 5em 1em;
 }
 
-.hero h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.3em;
-}
-
-.hero h2 {
-  font-size: 1.5em;
-  margin-bottom: 1em;
-}
-
-.btn-primary {
-  background: linear-gradient(135deg, #f1c40f, #d4ac0d);
-  color: #000;
-  font-weight: bold;
-  padding: 0.85em 1.8em;
-  border-radius: 8px;
-  text-decoration: none;
-  display: inline-block;
-  transition: transform 0.2s ease, background 0.3s ease;
-  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
-}
-
-.btn-primary:hover {
-  background: linear-gradient(135deg, #fff176, #f1c40f);
-  transform: scale(1.07);
-}
-
-/* Content Sections */
-.content {
-  padding: 3em 1em;
-  max-width: 1000px;
-  margin: auto;
-  background: white;
-  margin-top: 2em;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.highlight {
-  background: #fdf3c1;
-  padding: 1em;
-  border-left: 6px solid #f1c40f;
-  border-radius: 4px;
-  margin-bottom: 1em;
-  font-weight: bold;
-}
-
-/* Services */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5em;
-  margin-top: 2em;
-}
-
-.service {
-  text-align: center;
-}
-
-.service img {
-  width: 100%;
-  max-width: 180px;
-  border-radius: 8px;
+#hero h1 {
+  font-size: 2.5rem;
   margin-bottom: 0.5em;
 }
 
-/* Before & After */
-.before-after {
-  padding: 3em 1em;
-  background: #eee;
+#hero p {
+  font-size: 1.2rem;
+}
+
+/* Section headers */
+h2 {
   text-align: center;
-}
-
-.slider-container {
-  position: relative;
-  max-width: 800px;
-  margin: auto;
-}
-
-.slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: auto;
-  width: 100%;
-  border-radius: 8px;
-}
-
-.slider.before {
-  clip-path: inset(0 50% 0 0);
-}
-
-.slider.after {
-  position: relative;
-}
-
-#slider {
-  width: 100%;
-  margin-top: 1em;
-}
-
-/* Testimonials */
-.testimonials {
-  background: #fff8e1;
-  padding: 3em 1em;
-  text-align: center;
-}
-
-.testimonial {
-  margin-bottom: 1.5em;
-  font-style: italic;
-}
-
-/* FAQ */
-.faq {
-  margin-top: 1.5em;
-}
-
-.faq-question {
-  width: 100%;
-  text-align: left;
-  background: #f1c40f;
+  margin: 2em 0 1em;
+  font-size: 2rem;
   color: #222;
-  padding: 1em;
+  border-bottom: 3px solid #f1c40f;
+  display: inline-block;
+  padding-bottom: 0.2em;
+}
+
+/* Buttons (for forms, CTAs) */
+button,
+a.button {
+  display: inline-block;
+  padding: 0.8em 1.5em;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background: #f1c40f;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 0.5em;
-  font-weight: bold;
+  transition: all 0.3s ease;
 }
 
-.faq-answer {
-  display: none;
-  background: #fff9c4;
-  padding: 1em;
-  border-radius: 6px;
-  margin-bottom: 1em;
+button:hover,
+a.button:hover {
+  background: #d4ac0d;
+  transform: scale(1.05);
 }
 
 /* Gallery */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 1em;
+.gallery-project {
   margin: 2em auto;
   max-width: 1100px;
+  padding: 0 1em;
+}
+
+.gallery-project h3 {
+  color: #333;
+  margin-bottom: 0.3em;
+}
+
+.gallery-project p {
+  margin-bottom: 1em;
+  color: #666;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1em;
 }
 
 .gallery-img {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 140px;
   border: 2px solid #ccc;
+  border-radius: 8px;
+  object-fit: cover;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -251,6 +163,7 @@ a {
   border-radius: 8px;
   max-width: 90vw;
   max-height: 90vh;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
 .modal-content img {
@@ -268,50 +181,41 @@ a {
   cursor: pointer;
 }
 
-/* Quote Form */
-.quote-form {
+/* Contact form */
+form {
+  max-width: 600px;
+  margin: 2em auto;
   display: flex;
   flex-direction: column;
   gap: 1em;
+  background: white;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.quote-form label {
+form label {
   font-weight: bold;
 }
 
-.quote-form input,
-.quote-form textarea,
-.quote-form select {
-  padding: 0.6em;
+form input,
+form textarea {
+  padding: 0.8em;
   border: 1px solid #ccc;
   border-radius: 6px;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
-.quote-form button {
-  align-self: flex-start;
+form textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 /* Footer */
 footer {
-  background: #333;
-  color: white;
   text-align: center;
-  padding: 1.5em;
+  padding: 1em;
+  background: #111;
+  color: white;
   margin-top: 2em;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero {
-    padding: 3em 1em;
-  }
-
-  .hero h1 {
-    font-size: 2em;
-  }
-
-  .hero h2 {
-    font-size: 1.2em;
-  }
 }
