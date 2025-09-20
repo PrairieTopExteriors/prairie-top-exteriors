@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Contact | Prairie Top Exteriors Ltd</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header class="header">
-    <a href="index.html">
-      <img src="header-logo.png" alt="Prairie Top Exteriors Logo" class="logo">
-    </a>
+    <a href="index.html"><img src="header-logo.png" class="logo" alt="Prairie Top Exteriors Logo" /></a>
   </header>
 
-  <nav>
+  <nav class="main-nav">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
+    <a href="quote.html">Get a Quote</a>
     <a href="contact.html" class="active">Contact</a>
   </nav>
 
   <main>
-    <section id="contact">
+    <section class="content">
       <h2>Contact Us</h2>
-      <form action="https://formspree.io/f/YOUR_ID" method="POST">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
+      <!-- Replace the action value with your Formspree / backend endpoint -->
+      <form id="contactForm" action="https://formspree.io/f/YOUR_ID" method="POST" enctype="multipart/form-data">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required />
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="_replyto" required>
+        <label for="email">Email</label>
+        <input id="email" name="_replyto" type="email" required />
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" required></textarea>
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" />
 
-        <button type="submit">Send</button>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <label for="file">Attach image (optional)</label>
+        <input id="file" name="file" type="file" accept="image/*" />
+
+        <button class="button" type="submit">Send Message</button>
       </form>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; Prairie Top Exteriors Ltd. All rights reserved.</p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2025 Prairie Top Exteriors Ltd.</p>
+    </div>
   </footer>
 </body>
 </html>
