@@ -1,35 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Prairie Top Exteriors Ltd</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
+  <!-- HEADER -->
   <header class="header">
     <a href="index.html">
-      <img src="header-logo.png" alt="Prairie Top Exteriors Logo" class="logo">
+      <!-- Make sure file is named exactly header-logo.png in the repo root -->
+      <img src="header-logo.png" alt="Prairie Top Exteriors Logo" class="logo" />
     </a>
   </header>
 
-  <nav>
+  <!-- NAV (metal texture only on nav/footer) -->
+  <nav class="main-nav">
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
+    <a href="quote.html">Get a Quote</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <main>
-    <section id="hero">
-      <h1>Welcome to Prairie Top Exteriors</h1>
-      <p>Quality siding and roofing done right the first time.</p>
-    </section>
-  </main>
+  <!-- HERO -->
+  <section id="hero" class="hero">
+    <div class="hero-inner">
+      <h1>Prairie Top Exteriors Ltd.</h1>
+      <p class="hero-sub">Reliable. Local. Professional. Quality exteriors done right the first time.</p>
+      <a class="button" href="quote.html">Request a Free Quote</a>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; Prairie Top Exteriors Ltd. All rights reserved.</p>
+  <!-- ABOUT -->
+  <section id="about" class="content">
+    <h2>About Us</h2>
+    <p class="highlight">
+      Founded with a purpose — to prove that quality and speed can meet when trusted local installers bring years of experience to the table.
+    </p>
+    <p>At Prairie Top Exteriors, we combine precision craftsmanship with efficient timelines. Our Saskatchewan-based team ensures your project is built to last, delivered with honesty and care.</p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="content">
+    <h2>Our Services</h2>
+    <div class="services-grid">
+      <div class="service">
+        <img src="placeholders/service1.png" alt="" />
+        <h3>Hardie Board Siding</h3>
+      </div>
+      <div class="service">
+        <img src="placeholders/service2.png" alt="" />
+        <h3>Standing Seam Metal Roofing</h3>
+      </div>
+      <div class="service">
+        <img src="placeholders/service3.png" alt="" />
+        <h3>Vinyl & Metal Siding</h3>
+      </div>
+      <div class="service">
+        <img src="placeholders/service4.png" alt="" />
+        <h3>Soffit & Fascia</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECT / BEFORE-AFTER -->
+  <section class="before-after content">
+    <h2>Featured Project — Before & After</h2>
+    <div class="slider-container">
+      <img src="placeholders/before.jpg" alt="before" class="slider before" />
+      <img src="placeholders/after.jpg" alt="after" class="slider after" />
+      <input id="ba-slider" type="range" min="0" max="100" value="50" aria-label="Before/After slider" />
+    </div>
+    <p style="text-align:center; margin-top:.75em;">Drag the slider to compare before & after.</p>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials content">
+    <h2>What Our Clients Say</h2>
+    <div class="testimonials-grid">
+      <blockquote class="testimonial">
+        <p>“Prairie Top Exteriors did an outstanding job — quick, clean, and professional.”</p>
+        <cite>- Satisfied Customer</cite>
+      </blockquote>
+      <blockquote class="testimonial">
+        <p>“Great workmanship and fair pricing. Highly recommended.”</p>
+        <cite>- Homeowner</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="content">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq">
+      <button class="faq-question">How long does a typical siding project take?</button>
+      <div class="faq-answer"><p>Most siding projects finish in 5–10 business days depending on size and weather.</p></div>
+
+      <button class="faq-question">Do you provide warranties?</button>
+      <div class="faq-answer"><p>Yes — manufacturer warranties plus our workmanship guarantee on installations.</p></div>
+    </div>
+  </section>
+
+  <!-- CONTACT TEASER -->
+  <section class="content contact-teaser">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:prairietopexteriors@gmail.com">prairietopexteriors@gmail.com</a> · Phone: <a href="tel:+13065524066">(306) 552-4066</a></p>
+    <a class="button" href="contact.html">Contact / Send Message</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>&copy; 2025 Prairie Top Exteriors Ltd.</p>
+      <p>P.O Box 1104, Pilot Butte, SK S0G 3Z0</p>
+    </div>
   </footer>
 </body>
 </html>
