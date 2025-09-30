@@ -1,18 +1,20 @@
 [
   {
-    "title": "Hardie Board Siding - Regina",
-    "description": "Full Hardie board siding install with soffit and fascia.",
+    "title": "Align Reno - Regina",
+    "description": "reside with align a preimum siding ",
     "images": [
-      { "src": "gallery/image1.jpg", "alt": "Front view", "caption": "Front view after installation" },
-      { "src": "gallery/image2.jpg", "alt": "Side view", "caption": "Side angle with clean lines" }
-    ]
+      { "src": "gallery/image1.jpg", "alt": "Back view", "caption": "Back view after installation" },
+      { "src": "gallery/image2.jpg", "alt": "Front view", "caption": " Front/side angle with clean lines" }
+      { "src": "gallery/image3.jpg", "alt": "South Side", "caption": "Align Reno" }, ]
   },
   {
-    "title": "Metal Roofing - Pilot Butte",
-    "description": "Standing seam metal roof completed in 2024.",
-    "images": [
-      { "src": "gallery/image3.jpg", "alt": "Roof install", "caption": "New roof close-up" },
+    "title": "Standing Seam Roof- Echo",
+    "description": "Standing seam metal roof completed at Echo.",
+    "images": 
+    [
       { "src": "gallery/image4.jpg", "alt": "Finished roof", "caption": "Completed roof project" }
+      { "src": "gallery/image5.jpg", "alt": "A Frame", "caption": "Completed roof project" }
+      { "src": "gallery/image6.jpg", "alt": "Before the capping", "caption": "Completed roof project" }
     ]
   }
 ]
