@@ -1,23 +1,45 @@
-// Before & After slider
-const slider = document.getElementById("slider");
-if (slider) {
-  slider.addEventListener("input", (e) => {
-    const beforeImg = document.querySelector(".slider.before");
-    if (beforeImg) {
-      beforeImg.style.clipPath = `inset(0 ${100 - e.target.value}% 0 0)`;
-    }
-  });
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const galleryContainer = document.getElementById("galleryContainer");
 
-// FAQ toggles
-const faqButtons = document.querySelectorAll(".faq-question");
-faqButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const answer = btn.nextElementSibling;
-    if (answer.style.display === "block") {
-      answer.style.display = "none";
-    } else {
-      answer.style.display = "block";
-    }
-  });
+  if (galleryContainer) {
+    fetch("gallery.json")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Failed to load gallery.json");
+        }
+        return response.json();
+      })
+      .then(data => {
+        data.forEach(project => {
+          const projectDiv = document.createElement("div");
+          projectDiv.classList.add("project");
+
+          const title = document.createElement("h3");
+          title.textContent = project.job;
+
+          const description = document.createElement("p");
+          description.textContent = project.description;
+
+          const imagesDiv = document.createElement("div");
+          imagesDiv.classList.add("gallery-images");
+
+          project.images.forEach(imgPath => {
+            const img = document.createElement("img");
+            img.src = imgPath;
+            img.alt = project.job;
+            imagesDiv.appendChild(img);
+          });
+
+          projectDiv.appendChild(title);
+          projectDiv.appendChild(description);
+          projectDiv.appendChild(imagesDiv);
+
+          galleryContainer.appendChild(projectDiv);
+        });
+      })
+      .catch(err => {
+        galleryContainer.textContent = "Failed to load gallery.";
+        console.error(err);
+      });
+  }
 });
