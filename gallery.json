@@ -1,17 +1,18 @@
 [
   {
-    "title": "Soffit and Facia Reno - Regina",
-    "description": "New soffit and facia for another regina reno.",
-    "images": ["gallery/image1.jpg", "gallery/image2.jpg", "gallery/image3.jpg"]
+    "title": "Hardie Board Siding - Regina",
+    "description": "Full Hardie board siding install with soffit and fascia.",
+    "images": [
+      { "src": "gallery/image1.jpg", "alt": "Front view", "caption": "Front view after installation" },
+      { "src": "gallery/image2.jpg", "alt": "Side view", "caption": "Side angle with clean lines" }
+    ]
   },
   {
-    "title": "Metal Roof - Echo Lake",
-    "description": "Standing seam metal roof at the beautiful Echo lake.",
-    "images": ["gallery/image4.jpg", "gallery/image5.jpg", "gallery/image6.jpg"]
-  },
-  {
-    "title": "Align Reno - Regina",
-    "description": "From viynl to Align improving curb appeal.",
-    "images": ["gallery/image7.jpg", "gallery/image8.jpg"]
+    "title": "Metal Roofing - Pilot Butte",
+    "description": "Standing seam metal roof completed in 2024.",
+    "images": [
+      { "src": "gallery/image3.jpg", "alt": "Roof install", "caption": "New roof close-up" },
+      { "src": "gallery/image4.jpg", "alt": "Finished roof", "caption": "Completed roof project" }
+    ]
   }
 ]
