@@ -7,11 +7,11 @@
   {
     "title": "Metal Roof - Echo Lake",
     "description": "Standing seam metal roof at the beautiful Echo lake.",
-    "images": ["gallery/image4.jpg", "gallery/image5.jpg"]
+    "images": ["gallery/image4.jpg", "gallery/image5.jpg", gallery/image6.jpg"]
   },
   {
     "title": "Align Reno - Regina",
     "description": "From viynl to Align improving curb appeal.",
-    "images": ["gallery/image6.jpg", "gallery/image7.jpg", "gallery/image8.jpg"]
+    "images": [", "gallery/image7.jpg", "gallery/image8.jpg"]
   }
 ]
