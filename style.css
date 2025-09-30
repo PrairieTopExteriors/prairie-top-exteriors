@@ -32,7 +32,7 @@ header .logo {
    NAVIGATION
 =========================== */
 nav {
-  background: url('images/metal-texture.jpg') no-repeat center center;
+  background: url('metal-texture.jpg') no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: center;
