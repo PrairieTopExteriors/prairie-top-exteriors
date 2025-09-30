@@ -43,3 +43,14 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const range = document.querySelector(".ba-range");
+  const afterImg = document.querySelector(".ba-after");
+
+  if (range && afterImg) {
+    range.addEventListener("input", e => {
+      const value = e.target.value;
+      afterImg.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+    });
+  }
+});
