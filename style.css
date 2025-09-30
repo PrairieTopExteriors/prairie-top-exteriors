@@ -138,6 +138,9 @@ a.estimate-button:hover {
   border-radius: 50%;
   cursor: ew-resize;
   box-shadow: 0 0 6px rgba(0,0,0,0.5);
+.ba-slider .resize,
+.ba-slider .handle {
+  transition: left 2s linear, width 2s linear; /* smooth auto slide */
 }
 
 /* -------- GALLERY -------- */
