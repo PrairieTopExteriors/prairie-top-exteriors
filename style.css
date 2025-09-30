@@ -337,3 +337,48 @@ footer {
   border-radius: 5px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
+.before-after {
+  text-align: center;
+  margin: 4em 0;
+}
+
+.before-after h2 {
+  margin-bottom: 1em;
+  font-size: 2em;
+}
+
+.ba-container {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.ba-slider {
+  position: relative;
+  overflow: hidden;
+}
+
+.ba-slider img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.ba-before {
+  z-index: 1;
+}
+
+.ba-after {
+  z-index: 2;
+  clip-path: inset(0 50% 0 0); /* Show half */
+  transition: clip-path 0.2s;
+}
+
+.ba-range {
+  position: relative;
+  width: 100%;
+  margin-top: 1em;
+}
