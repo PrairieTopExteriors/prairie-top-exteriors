@@ -1,258 +1,176 @@
-/* -------- GLOBAL -------- */
+/* GENERAL */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   background-color: #f4f4f4;
   color: #222;
-  line-height: 1.6;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-h1, h2, h3 {
-  margin: 0.5em 0;
-  font-weight: bold;
-}
-
-/* -------- HEADER -------- */
-header.header {
+/* HEADER */
+.header {
+  width: 100%;
+  height: 160px;
   background: #333;
-  height: 180px;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
 }
 
 .logo {
   max-height: 100%;
-  width: auto;
+  max-width: 95%;
   object-fit: contain;
 }
 
-/* -------- NAVIGATION -------- */
+/* NAVIGATION */
 nav {
-  background: url("metal-texture.jpg") center center / cover repeat;
+  background: url("metal-texture.jpg") no-repeat center center;
+  background-size: cover;
   display: flex;
   justify-content: center;
   gap: 1em;
   padding: 0.75em;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 
 nav a {
-  color: #fff;
-  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background-color: #f1c40f;
   padding: 0.6em 1.2em;
-  border-radius: 6px;
-  background: rgba(0,0,0,0.4);
-  transition: background 0.3s, transform 0.2s;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.05em;
+  transition: transform 0.2s ease, background-color 0.3s, color 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
 nav a:hover,
-nav a.active {
-  background: #f1c40f;
-  color: #222;
+nav a:focus {
+  background-color: #fff;
+  color: #444;
   transform: scale(1.08);
 }
 
-/* -------- MAIN CONTENT -------- */
+/* MAIN CONTENT */
 main {
   padding: 2em;
-  background: #fff;
-  margin: 1.5em auto;
-  max-width: 1100px;
+  background-color: white;
+  margin: 1em auto;
+  max-width: 1000px;
   border-radius: 8px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-/* Highlight box */
+/* HIGHLIGHTS */
 .about-highlight {
-  background: #fdf3c1;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: #fdf3c1;
   padding: 1em;
   border-left: 6px solid #f1c40f;
+  margin-bottom: 1em;
   border-radius: 4px;
-  font-weight: bold;
-  margin: 1em 0;
 }
 
-/* Estimate button */
-a.estimate-button {
+/* BUTTON */
+.estimate-button {
   background: linear-gradient(135deg, #f1c40f, #d4ac0d);
   color: #000;
   font-weight: bold;
   padding: 0.85em 1.8em;
   border-radius: 8px;
+  text-decoration: none;
   display: inline-block;
-  margin-top: 1em;
+  margin-top: 1.5em;
   transition: transform 0.2s ease, background 0.3s ease;
   box-shadow: 0 3px 7px rgba(0,0,0,0.3);
 }
 
-a.estimate-button:hover {
+.estimate-button:hover {
   background: linear-gradient(135deg, #fff176, #f1c40f);
   transform: scale(1.07);
 }
 
-/* -------- BEFORE/AFTER SLIDER -------- */
-#before-after {
-  margin: 3em 0;
-  text-align: center;
-}
-
-.ba-slider {
-  position: relative;
-  overflow: hidden;
-  max-width: 900px;
+/* BEFORE/AFTER SLIDER */
+.slider-container {
+  max-width: 800px;
   margin: 2em auto;
 }
 
-.ba-slider img {
-  display: block;
-  width: 100%;
-  height: auto;
+.slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.ba-slider .resize {
+.slider-img {
+  width: 100%;
+  display: block;
+}
+
+.slider-overlay {
   position: absolute;
   top: 0;
   left: 0;
+  width: 50%;
   height: 100%;
   overflow: hidden;
-  border-right: 2px solid #fff;
 }
 
-.ba-slider .handle {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 30px;
-  height: 30px;
-  margin-top: -15px;
-  margin-left: -15px;
-  background: #f1c40f;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  cursor: ew-resize;
-  box-shadow: 0 0 6px rgba(0,0,0,0.5);
-.ba-slider .resize,
-.ba-slider .handle {
-  transition: left 2s linear, width 2s linear; /* smooth auto slide */
-}
-
-/* -------- GALLERY -------- */
-.gallery-group {
-  margin-bottom: 2em;
-}
-
-.gallery-group h3 {
-  margin-top: 1em;
-  color: #333;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1em;
-  margin-top: 1em;
-}
-
-.gallery-img {
+.slider-overlay img {
   width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 6px;
-  border: 2px solid #ccc;
-  cursor: pointer;
-  transition: transform 0.3s;
+  display: block;
 }
 
-.gallery-img:hover {
-  transform: scale(1.05);
-}
-
-/* Modal */
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.modal-content {
-  position: relative;
-  background: #fff;
-  padding: 1em;
-  border-radius: 8px;
-  max-width: 90%;
-  max-height: 90%;
-  overflow: auto;
-  text-align: center;
-}
-
-.modal-content img {
-  max-width: 100%;
-  border-radius: 6px;
-}
-
-.modal-content p {
-  margin-top: 0.5em;
-  font-size: 0.95em;
-}
-
-.modal .close {
+.slider-range {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 2em;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  appearance: none;
+  height: 6px;
+  background: #ddd;
+  border-radius: 3px;
   cursor: pointer;
 }
 
-/* -------- FOOTER -------- */
+.slider-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: #f1c40f;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: #f1c40f;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* FOOTER */
 .site-footer {
   background: #333;
-  color: #fff;
+  color: white;
   text-align: center;
-  padding: 1.2em;
-  margin-top: 3em;
-  font-size: 0.9em;
+  padding: 1em;
+  margin-top: 2em;
 }
 
-.footer-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-/* -------- RESPONSIVE -------- */
-@media (max-width: 768px) {
+/* RESPONSIVE */
+@media (max-width: 600px) {
   nav {
     flex-wrap: wrap;
     gap: 0.5em;
   }
-
-  .ba-slider .handle {
-    width: 24px;
-    height: 24px;
-  }
-
-  .gallery-img {
-    height: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  main {
-    padding: 1em;
-  }
-  h1 {
-    font-size: 1.8em;
+  nav a {
+    font-size: 0.95em;
+    padding: 0.5em 1em;
   }
 }
