@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Prairie Top Exteriors Ltd</title>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
@@ -15,7 +15,7 @@
     </a>
   </header>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav>
     <a href="index.html#about">About</a>
     <a href="services.html">Services</a>
@@ -23,8 +23,8 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- MAIN -->
   <main>
+    <!-- HERO / ABOUT -->
     <section id="about">
       <h1>Prairie Top Exteriors Ltd.</h1>
       <h2>Reliable. Local. Professional.</h2>
@@ -37,15 +37,17 @@
       <a href="mailto:prairietopexteriors@gmail.com" class="estimate-button">Get a Free Estimate</a>
     </section>
 
-    <!-- BEFORE / AFTER SLIDER -->
+    <!-- BEFORE/AFTER SLIDER -->
     <section id="before-after">
-      <h2>See the Difference</h2>
-      <div class="ba-slider">
-        <img src="gallery/before.jpg" alt="Before" />
-        <div class="resize">
-          <img src="gallery/after.jpg" alt="After" />
+      <h2>Before & After</h2>
+      <div class="slider-container">
+        <div class="slider">
+          <img src="images/before.jpg" alt="Before Project" class="slider-img before" />
+          <div class="slider-overlay">
+            <img src="images/after.jpg" alt="After Project" class="slider-img after" />
+          </div>
+          <input type="range" min="0" max="100" value="50" class="slider-range" />
         </div>
-        <span class="handle"></span>
       </div>
     </section>
   </main>
