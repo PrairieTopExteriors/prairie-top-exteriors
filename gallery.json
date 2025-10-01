@@ -1,3 +1,4 @@
+ "projects": [
 [
   {
     "title": "Align Reno - Regina",
@@ -11,6 +12,7 @@
     "title": "Standing Seam Roof- Echo",
     "description": "Standing seam metal roof completed at Echo.",
     "images": 
+    },
     [
       { "src": "gallery/image4.jpg", "alt": "Finished roof", "caption": "Completed roof project" }
       { "src": "gallery/image5.jpg", "alt": "A Frame", "caption": "Completed roof project" }
