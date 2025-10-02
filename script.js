@@ -1,81 +1,98 @@
- // Before/After Slider Functionality
-const range = document.querySelector(".slider-range");
-const overlay = document.querySelector(".slider-overlay");
+// ----------------- GALLERY -----------------
+async function loadGallery() {
+  try {
+    const res = await fetch("gallery.json");
+    const data = await res.json();
 
-if (range && overlay) {
-  // Manual drag
-  range.addEventListener("input", () => {
-    overlay.style.width = range.value + "%";
-  });
+    // Handles if JSON root is array or { projects: [...] }
+    const projects = Array.isArray(data) ? data : data.projects;
 
-  // Auto animate back and forth
-  let direction = 1;
-  setInterval(() => {
-    let val = parseInt(range.value);
-    if (val >= 100) direction = -1;
-    if (val <= 0) direction = 1;
-    range.value = val + direction;
-    overlay.style.width = range.value + "%";
-  }, 80); // speed (lower = faster, higher = slower)
-}
-// GALLERY LOADER
-document.addEventListener("DOMContentLoaded", () => {
-  const galleryContainer = document.getElementById("galleryContainer");
+    const container = document.getElementById("galleryContainer");
+    if (!container) return;
 
-  if (galleryContainer) {
-    fetch("gallery.json")
-      .then((response) => response.json())
-      .then((data) => {
-        data.projects.forEach((project) => {
-          // Create group section
-          const group = document.createElement("div");
-          group.classList.add("gallery-group");
+    projects.forEach(project => {
+      const section = document.createElement("section");
+      section.className = "gallery-project";
 
-          const title = document.createElement("h3");
-          title.textContent = project.title;
-          group.appendChild(title);
+      const title = document.createElement("h3");
+      title.textContent = project.title;
 
-          const desc = document.createElement("p");
-          desc.textContent = project.description;
-          group.appendChild(desc);
+      const desc = document.createElement("p");
+      desc.textContent = project.description;
 
-          // Images grid
-          const grid = document.createElement("div");
-          grid.classList.add("gallery-grid");
+      const grid = document.createElement("div");
+      grid.className = "gallery-grid";
 
-          project.images.forEach((imgPath) => {
-            const img = document.createElement("img");
-            img.src = imgPath;
-            img.alt = project.title;
-            img.className = "gallery-img";
+      project.images.forEach(imgData => {
+        let imgSrc = imgData;
+        let imgAlt = "";
+        let caption = "";
 
-            // Modal functionality
-            img.addEventListener("click", () => {
-              const overlay = document.createElement("div");
-              overlay.className = "modal";
-              overlay.innerHTML = `
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <img src="${img.src}" alt="${project.title}" />
-                  <p>${project.description}</p>
-                </div>
-              `;
-              document.body.appendChild(overlay);
+        if (typeof imgData === "object") {
+          imgSrc = imgData.src;
+          imgAlt = imgData.alt || "";
+          caption = imgData.caption || "";
+        }
 
-              overlay.querySelector(".close").onclick = () => overlay.remove();
-              overlay.onclick = (e) => {
-                if (e.target === overlay) overlay.remove();
-              };
-            });
+        const img = document.createElement("img");
+        img.src = imgSrc;
+        img.alt = imgAlt;
+        img.className = "gallery-img";
 
-            grid.appendChild(img);
-          });
+        img.addEventListener("click", () => openModal(imgSrc, caption || project.description));
+        grid.appendChild(img);
+      });
 
-          group.appendChild(grid);
-          galleryContainer.appendChild(group);
-        });
-      })
-      .catch((error) => console.error("Error loading gallery:", error));
+      section.appendChild(title);
+      section.appendChild(desc);
+      section.appendChild(grid);
+      container.appendChild(section);
+    });
+  } catch (err) {
+    console.error("Failed to load gallery:", err);
   }
-});
-   
+}
+
+function openModal(src, caption) {
+  const overlay = document.createElement("div");
+  overlay.className = "modal";
+  overlay.innerHTML = `
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="${src}" alt="${caption}" />
+      <p>${caption}</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  overlay.querySelector(".close").onclick = () => overlay.remove();
+  overlay.onclick = (e) => {
+    if (e.target === overlay) overlay.remove();
+  };
+}
+
+document.addEventListener("DOMContentLoaded", loadGallery);
+
+// ----------------- BEFORE/AFTER SLIDER -----------------
+function startBeforeAfter() {
+  const container = document.querySelector(".before-after");
+  if (!container) return;
+
+  const before = container.querySelector(".before");
+  const after = container.querySelector(".after");
+
+  let showingBefore = true;
+
+  setInterval(() => {
+    if (showingBefore) {
+      before.style.opacity = "0";
+      after.style.opacity = "1";
+    } else {
+      before.style.opacity = "1";
+      after.style.opacity = "0";
+    }
+    showingBefore = !showingBefore;
+  }, 4000); // every 4s switch
+}
+
+document.addEventListener("DOMContentLoaded", startBeforeAfter);
