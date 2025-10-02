@@ -8,23 +8,29 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- HEADER -->
+
+  <!-- HEADER WITH LOGO -->
   <header class="header">
-    <a href="index.html">
-      <img src="header-logo.png" alt="Prairie Top Exteriors Logo" class="logo" />
-    </a>
+    <a href="index.html"><img src="header-logo.png" alt="Prairie Top Exteriors Logo" class="logo" /></a>
   </header>
 
   <!-- NAVIGATION -->
-  <nav>
+  <nav class="bubbly-nav">
     <a href="index.html#about">About</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
   </nav>
 
+  <!-- SLIDESHOW -->
+  <section class="slideshow">
+    <div class="slideshow-container" id="slideshowContainer">
+      <!-- JS will inject images -->
+    </div>
+  </section>
+
+  <!-- MAIN CONTENT -->
   <main>
-    <!-- HERO / ABOUT -->
     <section id="about">
       <h1>Prairie Top Exteriors Ltd.</h1>
       <h2>Reliable. Local. Professional.</h2>
@@ -37,26 +43,21 @@
       <a href="mailto:prairietopexteriors@gmail.com" class="estimate-button">Get a Free Estimate</a>
     </section>
 
-    <!-- BEFORE/AFTER SLIDER -->
-    <section id="before-after">
-      <h2>Before & After</h2>
-      <div class="slider-container">
-        <div class="slider">
-          <img src="gallery/before.jpg" alt="Before Project" class="slider-img before" />
-          <div class="slider-overlay">
-            <img src="gallery/after.jpg" alt="After Project" class="slider-img after" />
-          </div>
-          <input type="range" min="0" max="100" value="50" class="slider-range" />
-        </div>
-      </div>
+    <section id="services">
+      <h2>Our Services</h2>
+      <ul>
+        <li>Hardie Board Siding</li>
+        <li>Vinyl & Metal Siding</li>
+        <li>Standing Seam Metal Roofing</li>
+        <li>Soffit & Fascia Installation</li>
+      </ul>
     </section>
   </main>
 
   <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p>&copy; 2025 Prairie Top Exteriors Ltd.</p>
-    </div>
+    <p>&copy; 2025 Prairie Top Exteriors Ltd. All rights reserved.</p>
   </footer>
+
 </body>
 </html>
