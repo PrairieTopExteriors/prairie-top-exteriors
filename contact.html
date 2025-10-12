@@ -1,54 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Prairie Top Exteriors Ltd</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="header">
-    <a href="index.html"><img src="header-logo.png" class="logo" alt="Prairie Top Exteriors Logo" /></a>
+    <a href="index.html"><img src="header-logo.png" class="logo" alt="Prairie Top Exteriors Logo"></a>
   </header>
 
-<nav>
-  <a href="index.html#about">About</a>
-  <a href="services.html">Services</a>
-  <a href="gallery.html">Gallery</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
+  <nav>
+    <a href="index.html#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
 
   <main>
-    <section class="content">
-      <h2>Contact Us</h2>
-      <!-- Replace the action value with your Formspree / backend endpoint -->
-      <form id="contactForm" action="https://formspree.io/f/YOUR_ID" method="POST" enctype="multipart/form-data">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required />
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">Email us directly at <a href="mailto:prairietopexteriors@gmail.com">prairietopexteriors@gmail.com</a></p>
 
-        <label for="email">Email</label>
-        <input id="email" name="_replyto" type="email" required />
-
-        <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" />
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-
-        <label for="file">Attach image (optional)</label>
-        <input id="file" name="file" type="file" accept="image/*" />
-
-        <button class="button" type="submit">Send Message</button>
-      </form>
-    </section>
+    <form action="https://formspree.io/f/your-form-id" method="POST" style="max-width:600px;margin:auto;">
+      <label>Name:</label><br>
+      <input type="text" name="name" required style="width:100%;padding:8px;"><br><br>
+      <label>Email:</label><br>
+      <input type="email" name="email" required style="width:100%;padding:8px;"><br><br>
+      <label>Message:</label><br>
+      <textarea name="message" rows="5" required style="width:100%;padding:8px;"></textarea><br><br>
+      <button type="submit" style="padding:10px 20px;">Send</button>
+    </form>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-inner">
-      <p>&copy; 2025 Prairie Top Exteriors Ltd.</p>
-    </div>
+    <p>&copy; 2025 Prairie Top Exteriors Ltd.</p>
   </footer>
 </body>
 </html>
