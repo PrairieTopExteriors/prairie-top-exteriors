@@ -1,41 +1,56 @@
+// ====== GALLERY LOADER ======
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("slideshowContainer");
+  const galleryContainer = document.getElementById("galleryContainer");
 
-  // Images from gallery folder
-  const galleryImages = [
-    "gallery/image1.jpg",
-    "gallery/image2.jpg",
-    "gallery/image3.jpg",
-    "gallery/image4.jpg",
-    "gallery/image5.jpg",
-    "gallery/image6.jpg",
-    "gallery/image7.jpg",
-    "gallery/image8.jpg"
-  ];
+  if (galleryContainer) {
+    fetch("gallery.json")
+      .then(response => response.json())
+      .then(data => {
+        data.groups.forEach(group => {
+          const title = document.createElement("h3");
+          title.textContent = group.title;
+          galleryContainer.appendChild(title);
 
-  // Shuffle and select 5 random images
-  const shuffled = galleryImages.sort(() => 0.5 - Math.random());
-  const selected = shuffled.slice(0, 5);
-
-  // Add them to the slideshow
-  selected.forEach((src, index) => {
-    const img = document.createElement("img");
-    img.src = src;
-    img.classList.add("slide");
-    if (index === 0) img.classList.add("active");
-    container.appendChild(img);
-  });
-
-  // Slide logic
-  const slides = container.querySelectorAll(".slide");
-  let current = 0;
-
-  function showNextSlide() {
-    slides[current].classList.remove("active");
-    current = (current + 1) % slides.length;
-    slides[current].classList.add("active");
+          group.images.forEach(image => {
+            const div = document.createElement("div");
+            div.className = "gallery-item";
+            div.innerHTML = `
+              <img src="gallery/${image.src}" alt="${image.desc}">
+              <div class="gallery-desc">${image.desc}</div>
+            `;
+            div.addEventListener("click", () => openLightbox(`gallery/${image.src}`));
+            galleryContainer.appendChild(div);
+          });
+        });
+      });
   }
 
-  // Change every 5 seconds
-  setInterval(showNextSlide, 5000);
+  // ====== LIGHTBOX ======
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
+  lightbox.innerHTML = "<img src='' alt=''>";
+  document.body.appendChild(lightbox);
+
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  window.openLightbox = function (src) {
+    lightbox.querySelector("img").src = src;
+    lightbox.style.display = "flex";
+  };
+
+  // ====== SLIDESHOW ======
+  let slideIndex = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlides() {
+    slides.forEach(slide => (slide.style.display = "none"));
+    slideIndex++;
+    if (slideIndex > slides.length) slideIndex = 1;
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 4000);
+  }
+
+  if (slides.length > 0) showSlides();
 });
