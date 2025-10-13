@@ -1,52 +1,72 @@
-// --- GALLERY ---
-fetch('gallery.json')
-  .then(res => res.json())
-  .then(data => {
-    const gallery = document.getElementById('galleryContainer');
-    if (!gallery) return;
-    data.groups.forEach(group => {
-      const groupTitle = document.createElement('h3');
-      groupTitle.textContent = group.name;
-      gallery.appendChild(groupTitle);
+/* ===========================
+   Slideshow (Home Page)
+=========================== */
+let slideIndex = 0;
 
-      const groupGrid = document.createElement('div');
-      groupGrid.className = 'gallery-grid';
+function showSlides() {
+  const slides = document.querySelectorAll(".slide");
+  slides.forEach((slide, i) => {
+    slide.style.display = i === slideIndex ? "block" : "none";
+  });
+  slideIndex = (slideIndex + 1) % slides.length;
+  setTimeout(showSlides, 5000); // Change every 5 seconds
+}
 
-      group.images.forEach(img => {
-        const imgEl = document.createElement('img');
-        imgEl.src = `gallery/${img.file}`;
-        imgEl.alt = img.desc;
-        imgEl.className = 'gallery-img';
-        imgEl.addEventListener('click', () => openModal(imgEl.src, img.desc));
-        groupGrid.appendChild(imgEl);
-      });
-      gallery.appendChild(groupGrid);
+// Start slideshow automatically if on home page
+window.addEventListener("load", () => {
+  if (document.querySelector(".slideshow")) {
+    showSlides();
+  }
+});
+
+/* ===========================
+   Gallery Page
+=========================== */
+async function loadGallery() {
+  const galleryContainer = document.getElementById("galleryContainer");
+  if (!galleryContainer) return;
+
+  try {
+    const response = await fetch("gallery.json");
+    const data = await response.json();
+
+    data.forEach(item => {
+      const div = document.createElement("div");
+      div.classList.add("gallery-item");
+
+      const img = document.createElement("img");
+      img.src = item.src;
+      img.alt = item.alt;
+
+      div.appendChild(img);
+      galleryContainer.appendChild(div);
+    });
+
+    // Add lightbox
+    setupLightbox();
+  } catch (err) {
+    console.error("Error loading gallery:", err);
+  }
+}
+
+function setupLightbox() {
+  const lightbox = document.createElement("div");
+  lightbox.id = "lightbox";
+  document.body.appendChild(lightbox);
+
+  const img = document.createElement("img");
+  lightbox.appendChild(img);
+
+  document.querySelectorAll(".gallery-item img").forEach(thumbnail => {
+    thumbnail.addEventListener("click", () => {
+      img.src = thumbnail.src;
+      lightbox.style.display = "flex";
     });
   });
 
-// --- MODAL ---
-function openModal(src, desc) {
-  const modal = document.createElement('div');
-  modal.className = 'modal';
-  modal.innerHTML = `
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img src="${src}" alt="">
-      <p>${desc}</p>
-    </div>`;
-  document.body.appendChild(modal);
-  modal.querySelector('.close').onclick = () => modal.remove();
-  modal.onclick = e => { if (e.target === modal) modal.remove(); };
+  lightbox.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
 }
 
-// --- SLIDESHOW ---
-let slideIndex = 0;
-function showSlides() {
-  const slides = document.getElementsByClassName("slides");
-  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
-  slideIndex++;
-  if (slideIndex > slides.length) slideIndex = 1;
-  slides[slideIndex-1].style.display = "block";
-  setTimeout(showSlides, 5000); // 5 seconds
-}
-document.addEventListener('DOMContentLoaded', showSlides);
+window.addEventListener("DOMContentLoaded", loadGallery);
