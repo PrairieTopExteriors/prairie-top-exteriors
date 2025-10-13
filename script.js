@@ -1,56 +1,52 @@
-// ====== GALLERY LOADER ======
-document.addEventListener("DOMContentLoaded", () => {
-  const galleryContainer = document.getElementById("galleryContainer");
+// --- GALLERY ---
+fetch('gallery.json')
+  .then(res => res.json())
+  .then(data => {
+    const gallery = document.getElementById('galleryContainer');
+    if (!gallery) return;
+    data.groups.forEach(group => {
+      const groupTitle = document.createElement('h3');
+      groupTitle.textContent = group.name;
+      gallery.appendChild(groupTitle);
 
-  if (galleryContainer) {
-    fetch("gallery.json")
-      .then(response => response.json())
-      .then(data => {
-        data.groups.forEach(group => {
-          const title = document.createElement("h3");
-          title.textContent = group.title;
-          galleryContainer.appendChild(title);
+      const groupGrid = document.createElement('div');
+      groupGrid.className = 'gallery-grid';
 
-          group.images.forEach(image => {
-            const div = document.createElement("div");
-            div.className = "gallery-item";
-            div.innerHTML = `
-              <img src="gallery/${image.src}" alt="${image.desc}">
-              <div class="gallery-desc">${image.desc}</div>
-            `;
-            div.addEventListener("click", () => openLightbox(`gallery/${image.src}`));
-            galleryContainer.appendChild(div);
-          });
-        });
+      group.images.forEach(img => {
+        const imgEl = document.createElement('img');
+        imgEl.src = `gallery/${img.file}`;
+        imgEl.alt = img.desc;
+        imgEl.className = 'gallery-img';
+        imgEl.addEventListener('click', () => openModal(imgEl.src, img.desc));
+        groupGrid.appendChild(imgEl);
       });
-  }
-
-  // ====== LIGHTBOX ======
-  const lightbox = document.createElement("div");
-  lightbox.id = "lightbox";
-  lightbox.innerHTML = "<img src='' alt=''>";
-  document.body.appendChild(lightbox);
-
-  lightbox.addEventListener("click", () => {
-    lightbox.style.display = "none";
+      gallery.appendChild(groupGrid);
+    });
   });
 
-  window.openLightbox = function (src) {
-    lightbox.querySelector("img").src = src;
-    lightbox.style.display = "flex";
-  };
+// --- MODAL ---
+function openModal(src, desc) {
+  const modal = document.createElement('div');
+  modal.className = 'modal';
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img src="${src}" alt="">
+      <p>${desc}</p>
+    </div>`;
+  document.body.appendChild(modal);
+  modal.querySelector('.close').onclick = () => modal.remove();
+  modal.onclick = e => { if (e.target === modal) modal.remove(); };
+}
 
-  // ====== SLIDESHOW ======
-  let slideIndex = 0;
-  const slides = document.querySelectorAll(".slide");
-
-  function showSlides() {
-    slides.forEach(slide => (slide.style.display = "none"));
-    slideIndex++;
-    if (slideIndex > slides.length) slideIndex = 1;
-    slides[slideIndex - 1].style.display = "block";
-    setTimeout(showSlides, 4000);
-  }
-
-  if (slides.length > 0) showSlides();
-});
+// --- SLIDESHOW ---
+let slideIndex = 0;
+function showSlides() {
+  const slides = document.getElementsByClassName("slides");
+  for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+  slideIndex++;
+  if (slideIndex > slides.length) slideIndex = 1;
+  slides[slideIndex-1].style.display = "block";
+  setTimeout(showSlides, 5000); // 5 seconds
+}
+document.addEventListener('DOMContentLoaded', showSlides);
