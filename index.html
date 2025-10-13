@@ -1,67 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Prairie Top Exteriors Ltd</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prairie Top Exteriors Ltd.</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <header class="header">
-    <a href="index.html"><img src="header-logo.png" class="logo" alt="Prairie Top Exteriors Logo" /></a>
+    <img src="header logo.png" alt="Prairie Top Exteriors Logo" class="logo">
   </header>
 
   <nav>
-    <a href="index.html#about">About</a>
+    <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Automatic slideshow -->
-  <section class="slideshow">
-    <div class="slides fade">
-      <img src="gallery/image1.jpg" alt="Project 1">
-    </div>
-    <div class="slides fade">
-      <img src="gallery/image2.jpg" alt="Project 2">
-    </div>
-    <div class="slides fade">
-      <img src="gallery/image3.jpg" alt="Project 3">
-    </div>
-    <div class="slides fade">
-      <img src="gallery/image4.jpg" alt="Project 4">
-    </div>
-  </section>
-
   <main>
-    <section id="about">
-      <h2>About Prairie Top Exteriors</h2>
-      <p>Prairie Top Exteriors Ltd delivers high-quality exterior finishing services throughout Saskatchewan. We specialize in Hardie siding, roofing, and custom exterior solutions built for prairie conditions.</p>
+    <section class="slideshow">
+      <div class="slide active-slide"><img src="gallery/image1.jpg" alt="Slide 1"></div>
+      <div class="slide"><img src="gallery/image2.jpg" alt="Slide 2"></div>
+      <div class="slide"><img src="gallery/image3.jpg" alt="Slide 3"></div>
+      <div class="slide"><img src="gallery/image4.jpg" alt="Slide 4"></div>
+      <div class="slide"><img src="gallery/image5.jpg" alt="Slide 5"></div>
+      <div class="slide"><img src="gallery/image6.jpg" alt="Slide 6"></div>
+      <div class="slide"><img src="gallery/image7.jpg" alt="Slide 7"></div>
+      <div class="slide"><img src="gallery/image8.jpg" alt="Slide 8"></div>
     </section>
 
-    <section id="services-preview">
-      <h2>Our Services</h2>
-      <p>Professional exterior installations for both commercial and residential projects.</p>
-      <a href="services.html" class="btn">See All Services</a>
-    </section>
-
-    <section id="gallery-preview">
-      <h2>Our Work</h2>
-      <p>See examples of our recent projects and quality craftsmanship.</p>
-      <a href="gallery.html" class="btn">View Gallery</a>
-    </section>
-
-    <section id="contact-preview">
-      <h2>Get In Touch</h2>
-      <p>Have a project in mind? Contact Prairie Top Exteriors today for a quote.</p>
-      <a href="contact.html" class="btn">Contact Us</a>
+    <section>
+      <h1>Welcome to Prairie Top Exteriors</h1>
+      <p style="text-align:center; margin-top:1em;">
+        Prairie Top Exteriors Ltd. is your trusted Saskatchewan-based contractor specializing in 
+        Hardie siding, soffit, fascia, and metal roofing. We take pride in combining speed, quality, 
+        and reliability — ensuring every project meets the Prairie Top standard.
+      </p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2025 Prairie Top Exteriors Ltd.</p>
+    <p>&copy; 2025 Prairie Top Exteriors Ltd. | All Rights Reserved</p>
   </footer>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+
+    function showSlide() {
+      slides.forEach((s, i) => s.classList.toggle('active-slide', i === currentSlide));
+      currentSlide = (currentSlide + 1) % slides.length;
+    }
+
+    showSlide();
+    setInterval(showSlide, 5000);
+  </script>
+
 </body>
 </html>
