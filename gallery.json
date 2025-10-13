@@ -1,10 +1,10 @@
 [
-  { "src": "gallery/image1.jpg", "desc": "Hardie siding installation" },
-  { "src": "gallery/image2.jpg", "desc": "Metal roof preparation" },
-  { "src": "gallery/image3.jpg", "desc": "Commercial exterior project" },
-  { "src": "gallery/image4.jpg", "desc": "Soffit and fascia finishing" },
-  { "src": "gallery/image5.jpg", "desc": "Residential siding" },
-  { "src": "gallery/image6.jpg", "desc": "Crew at work" },
-  { "src": "gallery/image7.jpg", "desc": "Final trim details" },
-  { "src": "gallery/image8.jpg", "desc": "Completed multi-family job" }
+  { "src": "gallery/image1.jpg", "alt": "Project 1" },
+  { "src": "gallery/image2.jpg", "alt": "Project 2" },
+  { "src": "gallery/image3.jpg", "alt": "Project 3" },
+  { "src": "gallery/image4.jpg", "alt": "Project 4" },
+  { "src": "gallery/image5.jpg", "alt": "Project 5" },
+  { "src": "gallery/image6.jpg", "alt": "Project 6" },
+  { "src": "gallery/image7.jpg", "alt": "Project 7" },
+  { "src": "gallery/image8.jpg", "alt": "Project 8" }
 ]
