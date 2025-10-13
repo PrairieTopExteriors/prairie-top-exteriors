@@ -1,53 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Services | Prairie Top Exteriors Ltd</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Prairie Top Exteriors</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="header">
-    <a href="index.html"><img src="header-logo.png" class="logo" alt="Prairie Top Exteriors Logo" /></a>
+  <!-- HEADER -->
+  <header>
+    <img src="header-logo.png" alt="Prairie Top Exteriors Logo" class="logo">
   </header>
 
-  <nav>
-    <a href="index.html#about">About</a>
-    <a href="services.html" class="active">Services</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <!-- NAVIGATION -->
+<nav>
+  <a href="index.html#about">About</a>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+</nav>
 
+
+  <!-- MAIN CONTENT -->
   <main>
-    <h2>Our Services</h2>
+    <h1>Our Services</h1>
+    <p>We specialize in providing top-quality exterior solutions for residential and commercial projects. Below are some of our core services:</p>
 
-    <section class="service-item">
-      <img src="gallery/image1.jpg" alt="Hardie Siding" />
-      <div>
-        <h3>Hardie Siding Installation</h3>
-        <p>Durable, low-maintenance siding expertly installed for a lasting finish that withstands harsh prairie weather.</p>
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <img src="gallery/siding-install.jpg" alt="Siding Installation">
+        <h2>Siding Installation</h2>
+        <p>Professional installation of Hardie Board, vinyl, and metal siding with precision and durability in mind.</p>
       </div>
-    </section>
 
-    <section class="service-item">
-      <img src="gallery/image2.jpg" alt="Roofing" />
-      <div>
-        <h3>Roofing</h3>
-        <p>Professional shingle and metal roofing installation for homes and multi-unit buildings.</p>
+      <!-- Service 2 -->
+      <div class="service-card">
+        <img src="gallery/roofing-install.jpg" alt="Roofing Services">
+        <h2>Roofing Services</h2>
+        <p>From sheeting to metal roof systems, we provide roofing solutions built to last in all weather conditions.</p>
       </div>
-    </section>
 
-    <section class="service-item">
-      <img src="gallery/image3.jpg" alt="Metal Work" />
-      <div>
-        <h3>Metal Cladding & Trim</h3>
-        <p>Custom metal fabrication and finishing for a polished, long-lasting result on every project.</p>
+      <!-- Service 3 -->
+      <div class="service-card">
+        <img src="gallery/soffit-install.jpg" alt="Soffit & Fascia">
+        <h2>Soffit & Fascia</h2>
+        <p>High-quality soffit and fascia installation to protect your home while enhancing curb appeal.</p>
       </div>
-    </section>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <img src="gallery/custom-clad.jpg" alt="Custom Exterior Work">
+        <h2>Custom Exterior Work</h2>
+        <p>Custom cladding, trims, and specialty exterior features to match your project’s unique design.</p>
+      </div>
+    </div>
+
+    <a href="contact.html" class="estimate-button">Request an Estimate</a>
   </main>
 
-  <footer class="site-footer">
-    <p>&copy; 2025 Prairie Top Exteriors Ltd.</p>
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 Prairie Top Exteriors Ltd. All rights reserved.</p>
   </footer>
 </body>
 </html>
