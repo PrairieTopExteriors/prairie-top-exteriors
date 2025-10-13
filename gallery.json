@@ -1,25 +1,10 @@
-{
-  "groups": [
-    {
-      "title": "Hardie Siding Projects",
-      "images": [
-        { "src": "hardie1.jpg", "desc": "Hardie board siding installation" },
-        { "src": "hardie2.jpg", "desc": "Detailed corner finishing" }
-      ]
-    },
-    {
-      "title": "Metal Roofing Projects",
-      "images": [
-        { "src": "roof1.jpg", "desc": "Standing seam metal roof" },
-        { "src": "roof2.jpg", "desc": "Sheeting installation" }
-      ]
-    },
-    {
-      "title": "Before and After",
-      "images": [
-        { "src": "before1.jpg", "desc": "Before renovation" },
-        { "src": "after1.jpg", "desc": "After renovation" }
-      ]
-    }
-  ]
-}
+[
+  { "src": "gallery/image1.jpg", "desc": "Hardie siding installation" },
+  { "src": "gallery/image2.jpg", "desc": "Metal roof preparation" },
+  { "src": "gallery/image3.jpg", "desc": "Commercial exterior project" },
+  { "src": "gallery/image4.jpg", "desc": "Soffit and fascia finishing" },
+  { "src": "gallery/image5.jpg", "desc": "Residential siding" },
+  { "src": "gallery/image6.jpg", "desc": "Crew at work" },
+  { "src": "gallery/image7.jpg", "desc": "Final trim details" },
+  { "src": "gallery/image8.jpg", "desc": "Completed multi-family job" }
+]
