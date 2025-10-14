@@ -1,23 +1,42 @@
 /* ===========================
-   Slideshow (Home Page)
+   Homepage Slideshow (auto from gallery.json)
 =========================== */
-let slideIndex = 0;
+async function initSlideshow() {
+  const slideshowContainer = document.querySelector(".slideshow");
+  if (!slideshowContainer) return;
 
-function showSlides() {
-  const slides = document.querySelectorAll(".slide");
-  slides.forEach((slide, i) => {
-    slide.style.display = i === slideIndex ? "block" : "none";
-  });
-  slideIndex = (slideIndex + 1) % slides.length;
-  setTimeout(showSlides, 5000); // Change every 5 seconds
+  try {
+    const response = await fetch("gallery.json");
+    const data = await response.json();
+    const slides = data.slice(0, 8); // First 8 images
+
+    slides.forEach((item, i) => {
+      const slide = document.createElement("div");
+      slide.classList.add("slide");
+      if (i === 0) slide.classList.add("active-slide");
+      slide.innerHTML = `<img src="${item.src}" alt="${item.alt}">`;
+      slideshowContainer.appendChild(slide);
+    });
+
+    startSlideshow();
+  } catch (err) {
+    console.error("Error loading slideshow:", err);
+  }
 }
 
-// Start slideshow automatically if on home page
-window.addEventListener("load", () => {
-  if (document.querySelector(".slideshow")) {
-    showSlides();
-  }
-});
+let slideIndex = 0;
+
+function startSlideshow() {
+  const slides = document.querySelectorAll(".slide");
+  if (!slides.length) return;
+
+  setInterval(() => {
+    slides.forEach((slide, i) => {
+      slide.style.display = i === slideIndex ? "block" : "none";
+    });
+    slideIndex = (slideIndex + 1) % slides.length;
+  }, 5000); // 5 seconds per slide
+}
 
 /* ===========================
    Gallery Page
@@ -42,13 +61,15 @@ async function loadGallery() {
       galleryContainer.appendChild(div);
     });
 
-    // Add lightbox
     setupLightbox();
   } catch (err) {
     console.error("Error loading gallery:", err);
   }
 }
 
+/* ===========================
+   Lightbox
+=========================== */
 function setupLightbox() {
   const lightbox = document.createElement("div");
   lightbox.id = "lightbox";
@@ -69,4 +90,10 @@ function setupLightbox() {
   });
 }
 
-window.addEventListener("DOMContentLoaded", loadGallery);
+/* ===========================
+   Page Initialization
+=========================== */
+window.addEventListener("DOMContentLoaded", () => {
+  initSlideshow();
+  loadGallery();
+});
