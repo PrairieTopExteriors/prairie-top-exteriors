@@ -36,6 +36,7 @@ h1, h2, h3 {
 /* ===== Navigation ===== */
 nav {
   background-color: #333;
+  navigation-image: url('metal-texture.jpg');
   text-align: center;
   padding: 0.5em 0;
 }
