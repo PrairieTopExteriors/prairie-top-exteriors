@@ -8,7 +8,7 @@ async function initSlideshow() {
   try {
     const response = await fetch("gallery.json");
     const data = await response.json();
-    const slides = data.slice(0, 8); // First 8 images
+    const slides = data.slice(0, 8); // Use first 8 images
 
     slides.forEach((item, i) => {
       const slide = document.createElement("div");
@@ -31,11 +31,14 @@ function startSlideshow() {
   if (!slides.length) return;
 
   setInterval(() => {
-    slides.forEach((slide, i) => {
-      slide.style.display = i === slideIndex ? "block" : "none";
-    });
+    const currentSlide = slides[slideIndex];
     slideIndex = (slideIndex + 1) % slides.length;
-  }, 5000); // 5 seconds per slide
+    const nextSlide = slides[slideIndex];
+
+    // Fade out current, fade in next
+    currentSlide.classList.remove("active-slide");
+    nextSlide.classList.add("active-slide");
+  }, 5000); // Change every 5 seconds
 }
 
 /* ===========================
@@ -57,7 +60,12 @@ async function loadGallery() {
       img.src = item.src;
       img.alt = item.alt;
 
+      const desc = document.createElement("div");
+      desc.classList.add("gallery-desc");
+      desc.textContent = item.alt || "";
+
       div.appendChild(img);
+      div.appendChild(desc);
       galleryContainer.appendChild(div);
     });
 
