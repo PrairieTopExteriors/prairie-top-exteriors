@@ -30,15 +30,15 @@ function startSlideshow() {
   const slides = document.querySelectorAll(".slide");
   if (!slides.length) return;
 
-  setInterval(() => {
-    const currentSlide = slides[slideIndex];
-    slideIndex = (slideIndex + 1) % slides.length;
-    const nextSlide = slides[slideIndex];
+setInterval(() => {
+  const currentSlide = slides[slideIndex];
+  slideIndex = (slideIndex + 1) % slides.length;
+  const nextSlide = slides[slideIndex];
 
-    // Fade out current, fade in next
-    currentSlide.classList.remove("active-slide");
-    nextSlide.classList.add("active-slide");
-  }, 5000); // Change every 5 seconds
+  currentSlide.classList.remove("active-slide");
+  nextSlide.classList.add("active-slide");
+}, 5000);
+  
 }
 
 /* ===========================
