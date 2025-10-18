@@ -2,6 +2,8 @@
    Homepage Slideshow (auto from gallery.json)
 =========================== */
 async function initSlideshow() {
+   slideshowContainer.style.position = "relative";
+slideshowContainer.style.height = "400px";
   const slideshowContainer = document.querySelector(".slideshow");
   if (!slideshowContainer) return;
 
