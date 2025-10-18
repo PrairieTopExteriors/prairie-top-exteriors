@@ -2,10 +2,12 @@
    Homepage Slideshow (auto from gallery.json)
 =========================== */
 async function initSlideshow() {
-   slideshowContainer.style.position = "relative";
-slideshowContainer.style.height = "400px";
   const slideshowContainer = document.querySelector(".slideshow");
   if (!slideshowContainer) return;
+
+  // Set style directly to ensure slideshow area is visible
+  slideshowContainer.style.position = "relative";
+  slideshowContainer.style.height = "400px";
 
   try {
     const response = await fetch("gallery.json");
@@ -32,15 +34,14 @@ function startSlideshow() {
   const slides = document.querySelectorAll(".slide");
   if (!slides.length) return;
 
-setInterval(() => {
-  const currentSlide = slides[slideIndex];
-  slideIndex = (slideIndex + 1) % slides.length;
-  const nextSlide = slides[slideIndex];
+  setInterval(() => {
+    const currentSlide = slides[slideIndex];
+    slideIndex = (slideIndex + 1) % slides.length;
+    const nextSlide = slides[slideIndex];
 
-  currentSlide.classList.remove("active-slide");
-  nextSlide.classList.add("active-slide");
-}, 5000);
-  
+    currentSlide.classList.remove("active-slide");
+    nextSlide.classList.add("active-slide");
+  }, 5000); // Change every 5 seconds
 }
 
 /* ===========================
