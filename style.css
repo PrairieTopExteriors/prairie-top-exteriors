@@ -142,7 +142,7 @@ main {
   width: 100%;
   opacity: 0;
   transition: opacity 2s ease;
-  z--index: 0;
+  z-index: 0;
 }
 
 .slide img {
@@ -193,6 +193,80 @@ main {
 
 #request-quote a:hover {
   background-color: #e6bf00;
+}
+
+/* ===========================
+   Contact Page Styling
+=========================== */
+.contact-section {
+  max-width: 700px;
+  margin: 80px auto;
+  background: #f9f9f9;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.contact-section h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contact-section p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  color: #444;
+  font-weight: 500;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  background-color: white;
+  transition: 0.2s ease-in-out;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #FFD300;
+  box-shadow: 0 0 0 2px rgba(255,211,0,0.3);
+  outline: none;
+}
+
+form button {
+  background-color: #FFD300;
+  color: #333;
+  font-weight: bold;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+
+form button:hover {
+  background-color: #e6c000;
+}
+
+@media (max-width: 600px) {
+  .contact-section {
+    margin: 40px 15px;
+    padding: 25px;
+  }
 }
 
 /* ===== Responsive ===== */
